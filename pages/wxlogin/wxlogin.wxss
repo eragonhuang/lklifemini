@@ -1,0 +1,47 @@
+page {
+  background-color:#fff;
+}
+.container {
+  text-align: center;
+  width: 100%;
+  background-color:#fff;
+}
+
+.container button {
+  text-align: center;
+  width: 90%;
+  line-height:100rpx;
+  margin-top:40rpx; 
+}
+
+.logo{
+   border-bottom: 1px solid rgba(0,0,0,.15);
+   line-height:170rpx;
+}
+.logo h2{
+  font-size:20px;
+}
+
+.content{
+   width: 90%;
+   text-align: left;
+   margin-left:40rpx; 
+   margin-top:-10rpx;
+}
+.content text{
+  font-size:32rpx;
+  font-weight:600px;
+  line-height:46rpx;
+  text-space:5rpx;
+}
+.content .insi{
+  display:inline-block;
+  height:90rpx;
+  line-height:90rpx;
+  vertical-align:middle;
+  margin:0 0 0 17rpx;
+  color:#a0acac;
+  font-size:28rpx;
+  list-style-type:circle;
+}
+

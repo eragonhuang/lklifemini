@@ -1,0 +1,9 @@
+{
+    "name": "my server name",
+    "host": "119.29.93.180",
+    "port": 15585,
+    "protocol": "tcp",
+    "username": "eragonhuang",
+    "password": "",
+    "remotePath": "/usr/local/mgtool/vscode/lklifemini"
+}

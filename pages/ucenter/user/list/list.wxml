@@ -1,0 +1,35 @@
+<view class="container">
+    
+    <view class="cate-nav">
+        <view  wx:for="{{navList}}" wx:key="unique" class="item {{ type == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchType">
+            <view class="name">{{item.name}}</view>
+        </view>
+    </view>
+
+    <block wx:for="{{myforum}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="Rid">
+      <view class="feed-item">
+
+        <view class="feed-source">
+            <view class="avatar" bindtap="jumpToOther" data-userid="{{item.AuthorId}}">
+              <image src="{{item.LogoUrl}}"></image>
+            </view>
+            <view class="works-box">
+              <text class="nickname">{{item.Nickname}}</text>
+              <text class='label'>{{item.CreateTime}}</text>
+            </view>
+        </view>
+
+        <view class="feed-content" hover-class='wsui-btn__hover_list' data-forumid="{{item.Rid}}" data-idx="{{idx}}" bindtap="jumpToDetail">
+          <view class="content-body" style="{{(item.ImagesUrl.length > 0)?'width:485rpx;':'width:668rpx;'}}">
+              <text>{{item.Content}}</text>
+          </view>
+          <view class="images-body" wx:if="{{item.ImagesUrl.length > 0}}">
+            <!--<image wx:for="{{item.ImagesUrl}}" wx:key="unique" src="{{item}}" data-index="{{index}}" data-fidx="{{idx}}" bindtap="previewImage"></image>-->
+            <image src="{{item.ImagesUrl[0]}}"></image>
+          </view>
+        </view>
+
+      </view>
+    </block>
+  
+</view>

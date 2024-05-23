@@ -1,0 +1,25 @@
+<view class="container">
+
+  <picker bindchange="bindPickerChange" range-key="{{'name'}}" value="{{selIndex}}" data-id="{{array[selIndex].id}}" range="{{array}}">
+    <view class="picker">
+      <view class="fb-type">
+        <view class="type-label">{{array[selIndex].name}}</view>
+        <image class="type-icon" src="/static/images/down_dot.png"></image>
+
+      </view>
+    </view>
+  </picker>
+  <view class="fb-body">
+    <textarea class="content" bindinput='bindWordLimit' placeholder="此刻想说。。。"/>
+    <view class="text-count">{{inputCnt}}/500</view>
+  </view>
+  <view class="fb-images">
+    <view class="content-images">
+      <image wx:for="{{imageList}}" wx:for-item="image" class="type-icon" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image> 
+      <image wx:if="{{ imageList.length < 9}}" class="type-icon" src="/static/images/addimg.png" bindtap="chooseImage"></image>
+    </view>
+  </view>
+ 
+
+  <button class="fb-btn" bindtap="sendNote">发 表</button>
+</view>

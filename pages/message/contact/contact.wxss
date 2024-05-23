@@ -1,0 +1,115 @@
+/* pages/contact/contact.wxss */
+
+page {
+ background-color: #f1f1f1;
+}
+
+.inputRoom {
+ width: 100vw;
+ height: 13vw;
+ border-top: 1px solid #cdcdcd;
+ background-color: #f1f1f1;
+ position: fixed;
+ bottom: 0;
+ display: flex;
+ align-items: center;
+ z-index: 20;
+}
+
+input {
+ width: 86vw;
+ height: 9.33vw;
+ background-color: #fff;
+ border-radius: 14rpx;
+ margin-left: 4vw;
+ padding: 0 3vw;
+ font-size: 28rpx;
+ color: #444;
+}
+
+.left-Triangle{
+    float:left;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 12px solid white;
+    border-bottom: 8px solid transparent;
+}
+.leftMsg {
+ font-size: 35rpx;
+ color: #444;
+ line-height: 7vw;
+ padding: 2vw 2.5vw;
+ background-color: #fff;
+ margin-left: -1.8vw;
+ border-radius: 10rpx;
+ z-index: 10;
+ max-width:66vw;
+}
+
+.right-Triangle{
+    float:right;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 12px solid  #96EB6A;
+    border-bottom: 8px solid transparent;
+}
+.rightMsg {
+ font-size: 35rpx;
+ color: #444;
+ line-height: 7vw;
+ padding: 2vw 2.5vw;
+ background-color: #96EB6A;
+ margin-right: -1.2vw;
+ border-radius: 10rpx;
+ z-index: 10;
+ max-width:66vw;
+}
+
+textarea{
+    background-color:#fff;
+}
+
+.loading{
+    width: 150rpx;
+    height: 15rpx;
+    margin: 0 auto;
+    margin-top:36rpx;
+    margin-bottom:50rpx;
+}
+.loading view{
+    display: inline-block;
+    width: 15rpx;
+    height: 100%;
+    margin-right: 5rpx;
+    border-radius: 50%;
+    background: lightgreen;
+    -webkit-animation: load 1.04s ease infinite;
+}
+.loading view:last-child{
+    margin-right: 0rpx; 
+}
+@-webkit-keyframes load{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.loading view:nth-child(1){
+    -webkit-animation-delay:0.13s;
+}
+.loading view:nth-child(2){
+    -webkit-animation-delay:0.26s;
+}
+.loading view:nth-child(3){
+    -webkit-animation-delay:0.39s;
+}
+.loading view:nth-child(4){
+    -webkit-animation-delay:0.52s;
+}
+.loading view:nth-child(5){
+    -webkit-animation-delay:0.65s;
+}

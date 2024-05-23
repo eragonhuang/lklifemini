@@ -1,0 +1,6 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "v-input": "/components/input/input"
+    }
+}

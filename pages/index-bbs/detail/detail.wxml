@@ -1,0 +1,88 @@
+<view class="container" bindtap='hideShowComponent'>
+ <scroll-view scroll-y>
+  <view>
+    <block wx:for="{{oneforum}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="Rid">
+      <view class="feed-item">
+        <view class="feed-source">
+            <view class="avatar">
+              <image src="{{item.LogoUrl}}"></image>
+            </view>
+            <view class="works-box">
+              <text class="nickname">{{item.Nickname}}</text>
+              <text class='label' data-id="{{item.ModuleId}}" >{{navArr[item.ModuleId]}}</text>
+            </view>
+        </view>
+        <view class="feed-content">
+          <view class="question" qid="{{Rid}}">
+              <text>{{item.Content}}</text>
+          </view>
+          <view class="images-body" wx:if="{{item.ImagesUrl.length > 0}}">
+            <image wx:for="{{item.ImagesUrl}}" wx:key="unique" src="{{item}}" data-index="{{index}}" data-fidx="{{idx}}" bindtap="previewImage"></image>
+          </view>
+          <view class="timeArea-body" >
+            <view class="timeArea-actions">
+              <view class="follow-it dot">
+                {{item.CreateTime}}
+              </view>
+              <view class="comments dot">
+                {{item.ViewNum}} 浏览
+              </view>
+              <view class="comments" style="margin-right: 10rpx;">
+                {{item.Comments.length+item.Praises.length}} 评论
+              </view>
+              <view wx:if="{{item.AuthorId == userId}}" class="comments" data-userid="-1" data-commentid="-1" data-forumid="{{item.Rid}}" data-fidx="{{idx}}" bindtap="submitDelete">
+                  <a>删除</a>
+              </view>
+              <view wx:if="{{item.AuthorId != userId && item.IsFavorite == 0}}" class="comments" data-fid="{{item.Rid}}" bindtap="favoriteForum">
+                  <a>收藏</a>
+              </view>
+              <view wx:if="{{item.AuthorId != userId && item.IsFavorite == 1}}" class="comments" data-fid="{{item.Rid}}" bindtap="delFavoriteForum">
+                  <a>取消收藏</a>
+              </view>
+
+              <view class='timeArea-right'>
+                  <view class='zan-pinglun' wx:if="{{showPinglunIdx == item.Rid}}">
+                      <text class='iconfont icon-xin' data-idx="{{item.isPraised}}" data-fidx="{{idx}}" catchtap='clickDianzan'>{{(item.isPraised == 0)?" 赞":" 取消"}}</text>
+                      <text class='iconfont icon-pinglun' data-fidx="{{idx}}" catchtap='clickPinglun'> 评论</text>
+                  </view>
+                  <image class="icon-pinglun2" data-idx="{{item.Rid}}" catchtap='showZanAndPinglun'></image>
+                  <!--text class='icon-pinglun2' data-idx="{{item.Rid}}" catchtap='showZanAndPinglun'></text-->
+              </view>
+ 
+            </view>
+        
+          </view>
+           
+           <view class="comment-body" wx:if="{{ (item.Comments.length+item.Praises.length) > 0}}">
+              <view class='triangle_border_up'>
+                    <text></text>
+              </view>
+              <view class='commentArea'>
+                    <view class='like {{(item.Comments.length > 0)?"likebottom":""}}' wx:if="{{ item.Praises.length > 0}}">
+                        <text class='iconfont icon-xin'></text>
+                        <text wx:for="{{item.Praises}}" class="{{(idx0<(item.Praises.length-1))?'comma':''}}" wx:key="unique" wx:for-index="idx0" wx:for-item="praise">{{praise}}</text>
+                    </view>
+                    <view class="commfield" wx:if="{{ item.Comments.length > 0}}">
+                      <view class='comment' hover-class='wsui-btn__hover_list'  wx:for="{{item.Comments}}" wx:key="unique" wx:for-item="comment"  data-index="{{index}}"  data-userid="{{comment.Userid}}" data-commentid="{{comment.Rid}}" data-forumid="{{item.Rid}}" data-fidx="{{idx}}" catchtap='submitDelete' >
+                          <text class='comment-nickname'>{{comment.Nickname}}</text>
+                          <text>{{comment.Content}}</text>
+                      </view>
+                    </view>
+              </view>
+              
+            </view>
+
+        </view>
+      </view>
+    </block>
+  </view>
+  </scroll-view>
+  <v-input inputPop="{{inputPop}}" bind:closeInput="closeIpnutComment" bind:writeInput="bindKeyInput" bind:sendInput="sendComment" />
+  <!-- 删除自己评论弹框 -->
+  <view class="mask" wx-if="{{delCommentPop}}">
+     <view class="del-myComment bottom-pos" hidden="{{hideModal}}" animation="{{animationData}}">
+         <button class="del-btn confirm" bindtap="deleteOperate" style="margin-top:1rpx;">删除</button>
+         <button class="del-btn cancel" bindtap="closeDelComment" style="margin-bottom:5rpx;">取消</button>
+     </view>
+  </view>
+</view>

@@ -1,0 +1,38 @@
+<view class="container">
+     <!-- 用户信息 -->
+  <view class="user">
+    <view class="user-header" style="background-image: url('/static/images/user-bg.png');">
+      <view class="user-header-cont">
+         <view class="user-header-avatar">
+          <image bindtap="onUserInfoClick" style="width:110rpx;height:110rpx;" src="{{userInfo.logo}}"></image>
+  
+         </view>
+         <view class="info">
+            <text class='name'>{{userInfo.nickname}}</text>
+         </view>
+         <view class="info-right" wx-if="{{loginUserId != userId}}">
+           <view class="focus-btn flex active" data-userid="{{userId}}" data-logourl="{{userInfo.logo}}" data-name="{{userInfo.nickname}}" bindtap="sendMsg">发信息</view>
+         </view>
+      </view>
+    </view>
+   </view>
+
+    <block wx:for="{{myforum}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="Rid">
+      <view class="feed-item">
+        <view class="feed-content" hover-class='wsui-btn__hover_list' data-forumid="{{item.Rid}}" data-idx="{{idx}}" bindtap="jumpToDetail">
+          <view class="images-body" wx:if="{{item.ImagesUrl.length > 0}}">
+              <image src="{{item.ImagesUrl[0]}}"></image>
+          </view>
+          <view class="content-body" style="{{(item.ImagesUrl.length > 0)?'width:485rpx;':'width:668rpx;'}}">
+              <text>{{item.Content}}</text>
+          </view>
+        </view>
+        <view class="feed-content">
+           <view class="bottom-body">
+              <text> {{item.CreateTime}} </text>
+            </view>
+        </view>
+      </view>
+    </block>
+  
+</view>

@@ -1,0 +1,26 @@
+<view class="container" style="height:100%;overflow:hidden;">
+  <view class="search">
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">搜索商品</text>
+    </navigator>
+  </view>
+  <view class="catalog">
+    <scroll-view class="nav" scroll-y="true">
+        <view class="item {{ selectId == item.id ? 'active' : ''}}" wx:for="{{navList}}"  data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
+    </scroll-view>
+
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
+      <view class="cate-item">
+        <view class="b">
+            <navigator class="item {{(iindex + 1) % 2 == 0 ? 'item-b' : ''}}"   url="/pages/goods/goods?id={{iitem.id}}" wx:for="{{goodsList}}" wx:for-item="iitem" wx:for-index="iindex" >
+                <image class="img" src="{{iitem.list_pic_url}}" background-size="cover"></image>
+                <text class="name">{{iitem.name}}</text>
+                <text class="price">￥{{iitem.retail_price}}</text>
+            </navigator>
+        </view>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>

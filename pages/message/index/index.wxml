@@ -1,0 +1,25 @@
+<scroll-view scroll-y="true" style="border-top:1rpx solid #eee;">
+  <view class="tips" wx:if="{{!list.length}}">
+    正在载入，请稍候...
+  </view>
+  <view class="item-avatar-md" wx:for="{{list}}" wx:key="i.userid" wx:for-item="i" wx:for-index="index" data-index="{{index}}" data-name="{{i.nickname}}" data-userid="{{i.userid}}" data-logourl="{{i.avatar}}" bindtap="goPage">
+          <view class="marks" wx:if="{{i.count}}">
+            <text>{{i.count}}</text>
+          </view>
+          <image src="{{i.avatar}}"></image>
+          <view class="item-text">
+            <view class="text_box">
+              <view class="flex">
+                <text class="title">{{i.nickname}}</text>
+              </view>
+              <view class="flex">
+                <text class="message">{{i.text}}</text>
+              </view>
+            </view>
+          </view>
+           <view class="item-time padding_half">
+            <text class="messagetime">{{i.updated}}</text>
+          </view>  
+  </view>
+
+</scroll-view>

@@ -1,0 +1,143 @@
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user">
+    <view class="user-header" style="background-image: url('/static/images/user-bg.png');">
+      <view class="user-header-cont">
+         <view class="user-header-avatar">
+          <!-- <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>-->
+           <image bindtap="onUserInfoClick" style="width:110rpx;height:110rpx;" src="{{userInfo.avatarUrl}}"></image>
+         </view>
+         <!-- <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>-->
+         <view class="info">
+            <text class='name' bindtap='onUserInfoClick'>{{ userInfo.nickName }}</text>
+         </view>
+      </view>
+    </view>
+   </view>
+    <!-- 订单导航栏 -->
+    <view class="order-navbar">
+      
+      <view class="order-navbar-footer dis-flex m-top10">
+
+        <view class="order-navbar-item flex-box">     
+          <form bindsubmit="onTargetMenus" data-url="pages/ucenter/collect/collect" report-submit="true">
+            <button formType="submit" class="btn-normal">
+              <text class="order-navbar__icon iconfont icon-favorite"></text>
+              <text class="order-navbar__name">我的收藏</text>
+            </button>
+          </form>
+        </view>
+        <!--<view class="order-navbar-item flex-box">
+          <form bindsubmit="onTargetList" data-type="posting"  report-submit="true">
+            <button formType="submit" class="btn-normal">
+              <text class="order-navbar__icon iconfont icon-form"></text>
+              <text class="order-navbar__name">我的发布</text>
+            </button>
+          </form>
+        </view>-->
+        <view class="order-navbar-item flex-box">
+          <form bindsubmit="onTargetList" data-type="comment" report-submit="true">
+            <button formType="submit" class="btn-normal">
+              <text class="order-navbar__icon iconfont icon-daifukuan"></text>
+              <text class="order-navbar__name">我的评论</text>
+              <text class="order-badge" wx:if="{{false}}">1</text>
+            </button>
+          </form>
+        </view>
+        <view class="order-navbar-item flex-box">
+          <form bindsubmit="onTargetList" data-type="pairse" report-submit="true">
+            <button formType="submit" class="btn-normal">
+              <text class="order-navbar__icon iconfont icon-daishouhuo"></text>
+              <text class="order-navbar__name">我的足迹</text>
+            </button>
+          </form>
+        </view>
+        
+      </view>
+  </view>
+  <!-- 菜单列表 -->
+  <view class="menus-list m-top20">
+  
+   <!--<form bindsubmit="onTargetList" data-type="favorite" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="menus-item dis-flex b-f">
+          <view class="menus-item__left flex-box dis-flex flex-y-center">
+            <text class="iconfont icon-favorite f-34"></text>
+            <text class="menus-item__name f-30">我的收藏</text>
+          </view>
+          <view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+            <text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+          </view>
+        </view>
+      </button>
+    </form>-->
+    </view>
+    <view class="menus-list m-top20">
+     <form bindsubmit="onTargetMenus" data-url="pages/ucenter/order/order" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="menus-item dis-flex b-f">
+          <view class="menus-item__left flex-box dis-flex flex-y-center">
+            <text class="iconfont icon-tubiao_liebiaopailie f-34"></text>
+            <text class="menus-item__name f-30">我的订单</text>
+          </view>
+          <view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+            <text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+          </view>
+        </view>
+      </button>
+    </form>
+     <form bindsubmit="onTargetMenus" data-url="pages/ucenter/address/address" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="menus-item dis-flex b-f">
+          <view class="menus-item__left flex-box dis-flex flex-y-center">
+            <text class="iconfont icon-dingwei1 f-34"></text>
+            <text class="menus-item__name f-30">地址管理</text>
+          </view>
+          <view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+            <text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+          </view>
+        </view>
+      </button>
+    </form>
+    </view>
+    <view class="menus-list m-top20">
+     <form bindsubmit="onTargetMenus" data-url="pages/address/index" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="menus-item dis-flex b-f">
+          <view class="menus-item__left flex-box dis-flex flex-y-center">
+            <text class="iconfont icon-help f-34"></text>
+            <text class="menus-item__name f-30">联系客服</text>
+          </view>
+          <view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+            <text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+          </view>
+        </view>
+      </button>
+    </form>
+    <form bindsubmit="onTargetMenus" data-url="pages/ucenter/feedback/feedback" report-submit="true">
+      <button formType="submit" class="btn-normal">
+        <view class="menus-item dis-flex b-f">
+          <view class="menus-item__left flex-box dis-flex flex-y-center">
+            <text class="iconfont icon-yonghu f-34"></text>
+            <text class="menus-item__name f-30">意见反馈</text>
+          </view>
+          <view class="menus-item__right flex-box dis-flex flex-x-end flex-y-center">
+            <text class="iconfont icon-xiangyoujiantou f-26 col-7"></text>
+          </view>
+        </view>
+      </button>
+    </form>
+  </view>
+</view>
+
+<!--
+<view class='dialog-login' wx:if="{{showLoginDialog}}" bindtap='onCloseLoginDialog'>
+  <view class='dialog-body' catchtap='onDialogBody'>
+    <view class='title'>请选择登录方式</view>
+    <view class='content'>
+      <button type="primary" open-type="getUserInfo" bindgetuserinfo="onWechatLogin">微信登录</button>
+      <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onWechatLogin">手机号登录</button>
+    </view>
+  </view>
+</view>
+-->

@@ -1,0 +1,111 @@
+<view class="container" bindtap='hideShowComponent'>
+ <scroll-view scroll-y>
+  <view class="search">
+    <view bindtap="jumpToPosting" class="post">
+      <image class="camera" src="/static/images/camera.png"></image>
+    </view>
+    <navigator url="/pages/search/search" class="input">
+      <image class="icon"></image>
+      <text class="txt">搜索</text>
+    </navigator>
+    <view class="cate" bindtap="onShowCategory">
+      <image class="category" src="/static/images/category.png"></image>
+    </view>
+  </view>
+
+  <view class="cate-nav" wx:if="{{showCategory}}">
+        <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
+            <view  wx:for="{{navList}}" wx:key="unique" class="item {{ cateId == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">
+                <view class="name">{{item.name}}</view>
+            </view>
+        </scroll-view>
+    </view>
+
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{banner}}" wx:key="unique">
+      <navigator url="{{item.Link}}">
+        <image src="{{item.ImageUrl}}" background-size="cover"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+   
+  <view>
+    <block wx:for="{{forums}}" wx:for-index="idx" wx:for-item="item" data-idx="{{idx}}" wx:key="unique">
+      <view class="feed-item">
+        <view class="feed-source">
+            <view class="avatar" bindtap="jumpToOther" data-userid="{{item.AuthorId}}">
+              <image src="{{item.LogoUrl}}"></image>
+            </view>
+            <view class="works-box">
+              <text class="nickname" data-userid="{{item.AuthorId}}" bindtap="jumpToOther">{{item.Nickname}}</text>
+              <text class='label' data-id="{{item.ModuleId}}"  bindtap="switchCate">{{navArr[item.ModuleId]}}</text>
+            </view>
+        </view>
+        <view class="feed-content">
+          <view class="question" hover-class='wsui-btn__hover_list' data-forumid="{{item.Rid}}" data-forumidx="{{idx}}" bindtap="jumpToDetail">
+              <view>{{item.Content}}<a wx-if="{{item.LargeFlag==1}}">更多</a></view>
+          </view>
+          <view class="images-body" wx:if="{{item.ImagesUrl.length > 0}}">
+            <image wx:for="{{item.ImagesUrl}}" wx:key="unique" src="{{item}}" data-index="{{index}}" data-fidx="{{idx}}" bindtap="previewImage"></image>
+          </view>
+          <view class="timeArea-body" >
+            <view class="timeArea-actions">
+              <view class="follow-it dot">
+                {{item.CreateTime}}
+              </view>
+              <view class="comments dot">
+                {{item.ViewNum}} 浏览
+              </view>
+              <view class="comments">
+                {{item.Comments.length+item.Praises.length}} 评论
+              </view>
+
+              <view class='timeArea-right'>
+                  <view class='zan-pinglun' wx:if="{{showPinglunIdx == item.Rid}}">
+                            <text class='iconfont icon-xin' data-idx="{{item.isPraised}}" data-fidx="{{idx}}" catchtap='clickDianzan'>{{(item.isPraised == 0)?" 赞":" 取消"}}</text>
+                            <text class='iconfont icon-pinglun' data-fidx="{{idx}}" catchtap='clickPinglun'> 评论</text>
+                  </view>
+                  <image class="icon-pinglun2" data-idx="{{item.Rid}}" catchtap='showZanAndPinglun'></image>
+                  <!--text class='icon-pinglun2' data-idx="{{item.Rid}}" catchtap='showZanAndPinglun'></text-->
+              </view>
+ 
+            </view>
+        
+          </view>
+           
+           <view class="comment-body" wx:if="{{ (item.Comments.length+item.Praises.length) > 0}}">
+              <view class='triangle_border_up'>
+                    <text></text>
+              </view>
+              <view class='commentArea'>
+                    <view class='like {{(item.Comments.length > 0)?"likebottom":""}}' wx:if="{{ item.Praises.length > 0}}">
+                        <text class='iconfont icon-xin'></text>
+                        <text wx:for="{{item.Praises}}" class="{{(idx0<(item.Praises.length-1))?'comma':''}}" wx:key="unique" wx:for-index="idx0" wx:for-item="praise">{{praise}}</text>
+                    </view>
+                    <view class="commfield" wx:if="{{ item.Comments.length > 0}}">
+                      <view class='comment' hover-class='wsui-btn__hover_list'  wx:for="{{item.Comments}}" wx:key="unique" wx:for-item="comment"  data-index="{{index}}"  data-userid="{{comment.Userid}}" data-commentid="{{comment.Rid}}" data-forumid="{{item.Rid}}" data-fidx="{{idx}}" catchtap='followComment' >
+                          <text hidden="{{index>2&&item.showMore}}" class='comment-nickname'>{{comment.Nickname}}</text>
+                          <text hidden="{{index>2&&item.showMore}}">{{comment.Content}}</text>
+                      </view>
+                      <view wx:if="{{item.Comments.length>3}}" class='down' hover-class='wsui-btn__hover_list'data-idx="{{idx}}" data-flag="{{item.showMore}}" catchtap='showMoreComment'>
+                            <image src="{{item.downUpImg}}" style="height:36rpx;width:42rpx;"></image>
+                      </view>
+                    </view>
+              </view>
+              
+            </view>
+
+        </view>
+      </view>
+    </block>
+  </view>
+  </scroll-view>
+  <v-input inputPop="{{inputPop}}" bind:closeInput="closeIpnutComment" bind:writeInput="bindKeyInput" bind:sendInput="sendComment" />
+  <!-- 删除自己评论弹框 -->
+  <view class="mask" wx-if="{{delCommentPop}}">
+     <view class="del-myComment bottom-pos" hidden="{{hideModal}}" animation="{{animationData}}">
+         <button class="del-btn confirm" bindtap="delMyComment" style="margin-top:1rpx;">删除</button>
+         <button class="del-btn cancel" bindtap="closeDelComment" style="margin-bottom:5rpx;">取消</button>
+     </view>
+  </view>
+</view>

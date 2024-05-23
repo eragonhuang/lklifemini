@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="logo">
+      <h2>共享山姆</h2>
+  </view>
+  <view class="content">
+     <text>
+      该小程序由浪卡网络科技开发，向其提供以下权限即可继续操作
+     </text>
+     <view class="insi">获取你的公开信息(昵称、头像等)</view>
+  </view>
+
+  <button class="weui-btn" type="primary" open-type="getUserInfo" bindgetuserinfo="onWechatLogin">确认登录</button>
+  <button class="weui-btn" type="default"  bindtap="backtopage">取消</button>
+</view>

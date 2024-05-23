@@ -1,0 +1,6 @@
+<!--components/input/input.wxml-->
+<view class='input-box' wx:if="{{inputPop.isShowIpnut}}">
+  <input class='flex' placeholder="评论" placeholder-style="color:#989898" adjust-position="false" bindblur="closeIpnutComment" bindinput="bindKeyInput" maxlength="{{inputPop.inputMaximum}}" value="{{inputPop.inputValue}}" confirm-type='send' bindconfirm='sendInput' auto-focus />
+  <!--button class="send-btn flex {{inputValue === '' ? 'gray' : ''}}" bindtouchstart="sendInput">{{inputPop.inputType== 'comment'?'发布':'确认'}}</button-->
+</view>
+
