@@ -2,7 +2,7 @@ const ApiRootUrl = 'http://119.29.93.180/api/';
 const ApiRootUrl2 = 'http://119.29.93.180/lkshop/php/do.cgi?';
 
 module.exports = {
-  IndexUrl: ApiRootUrl2 + 'method=main', //首页数据接口2
+  IndexUrl: ApiRootUrl2 + 'method=main', //首页数据接口
   getOneForumUrl: ApiRootUrl2 + 'method=maindetail', //首页单条数据接口
   AddCommentUrl: ApiRootUrl2 + 'method=commentadd', //评论
   DianzanUrl: ApiRootUrl2 + 'method=dianzan', //点赞
