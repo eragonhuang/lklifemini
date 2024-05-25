@@ -5,9 +5,19 @@
       <text class="txt">搜索商品</text>
     </navigator>
   </view>
+  <view class="m-menu">
+    <navigator class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+      <image src="{{item.icon_url}}" background-size="cover"></image>
+      <text>{{item.name}}</text>
+    </navigator>
+  </view>
   <view class="catalog">
-    <scroll-view class="nav" scroll-y="true">
+
+    <!--滚动 https://www.jianshu.com/p/3905719cb310 -->
+    <scroll-view class="nav" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
+     <view class="cate-item">
         <view class="item {{ selectId == item.id ? 'active' : ''}}" wx:for="{{navList}}"  data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
+     </view>
     </scroll-view>
 
     <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">

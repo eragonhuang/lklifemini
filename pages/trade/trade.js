@@ -3,6 +3,7 @@ var api = require('../../config/api.js');
 
 Page({
   data: {
+    channel: [],
     navList: [],
     categoryList: [],
     currentCategory: {},
@@ -33,6 +34,7 @@ Page({
     });
     util.request(api.CatalogList).then(function (res) {
         that.setData({
+          channel: res.data.channel,
           navList: res.data.categoryList,
           currentCategory: res.data.currentCategory
         });
