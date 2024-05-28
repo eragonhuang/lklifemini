@@ -11,7 +11,8 @@ Page({
     scrollTop: 0,
     scrollHeight: 0,
     goodsList: [],
-    selectId: 1005000
+    selectId: 1005000,
+    channelSelectId: 1
   },
   onLoad: function (options) {
     var that = this;
@@ -79,6 +80,13 @@ Page({
           selectId: categoryId
         });
       });
+  },
+
+  switchChannel: function (event) {
+    var that = this;
+    that.setData({
+      channelSelectId: event.currentTarget.dataset.id
+    });
   },
 
   switchCate: function (event) {

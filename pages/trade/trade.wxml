@@ -20,10 +20,10 @@
       <view class="scroll-item bg_black"></view>
       <view class="scroll-item bg_blue"></view>
       <view class="scroll-item bg_orange"></view> -->
-      <navigator class="scroll-item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
+      <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
         <image src="{{item.icon_url}}" background-size="cover"></image>
         <text>{{item.name}}</text>
-      </navigator>
+      </view>
   </scroll-view>
   </view>
  

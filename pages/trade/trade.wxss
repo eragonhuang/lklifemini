@@ -71,11 +71,12 @@ page {
 
 .m-menu text {
   display: block;
-  font-size: 24rpx;
+  font-size: 26rpx;
   text-align: center;
   margin: 0 auto;
   line-height: 1;
   color: #333;
+  width: fit-content;
 }
 
 .m-menu .scroll-view {
@@ -85,6 +86,14 @@ page {
 .m-menu .scroll-view .scroll-item {
   display: inline-block;
   width: 62px;
+}
+
+.m-menu .active text {
+  background: none repeat scroll 0 0 #2a6f8d;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 2px 4px;
+  border-radius:3px;
 }
 
 .catalog {
