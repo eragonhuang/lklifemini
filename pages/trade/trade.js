@@ -11,7 +11,7 @@ Page({
     scrollTop: 0,
     scrollHeight: 0,
     goodsList: [],
-    selectId: 1005000,
+    selectId: 1011000,
     channelSelectId: 1
   },
   onLoad: function (options) {

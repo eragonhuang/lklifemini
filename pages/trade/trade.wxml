@@ -6,20 +6,8 @@
     </navigator>
   </view>
   
-    <!-- <view class="m-menu">
-      <navigator class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
-        <image src="{{item.icon_url}}" background-size="cover"></image>
-        <text>{{item.name}}</text>
-      </navigator>
-    </view> -->
     <view class="m-menu">
     <scroll-view class="scroll-view" scroll-x="{{true}}">
-      <!-- <view class="scroll-item bg_red"></view>
-      <view class="scroll-item bg_green"></view>
-      <view class="scroll-item bg_yellow"></view>
-      <view class="scroll-item bg_black"></view>
-      <view class="scroll-item bg_blue"></view>
-      <view class="scroll-item bg_orange"></view> -->
       <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
         <image src="{{item.icon_url}}" background-size="cover"></image>
         <text>{{item.name}}</text>
