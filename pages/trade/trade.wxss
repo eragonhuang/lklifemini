@@ -47,7 +47,7 @@ page {
 
 .m-menu {
   display: flex;
-  height: 181rpx;
+  height: 160rpx;
   width: 750rpx;
   flex-flow: row nowrap;
   align-items: center;
@@ -76,6 +76,15 @@ page {
   margin: 0 auto;
   line-height: 1;
   color: #333;
+}
+
+.m-menu .scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+.m-menu .scroll-view .scroll-item {
+  display: inline-block;
+  width: 62px;
 }
 
 .catalog {
