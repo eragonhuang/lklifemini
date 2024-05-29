@@ -12,7 +12,8 @@ Page({
     scrollHeight: 0,
     goodsList: [],
     selectId: 1011000,
-    channelSelectId: 1
+    channelSelectId: 1,
+    switchFlag:true
   },
   onLoad: function (options) {
     var that = this;
@@ -88,6 +89,16 @@ Page({
       channelSelectId: event.currentTarget.dataset.id
     });
   },
+
+  switchGroup: function (event) {
+    var that = this;
+    var flag = (that.data.switchFlag)?false:true;
+    that.setData({
+      switchFlag: flag
+    });
+  },
+
+  
 
   switchCate: function (event) {
     var that = this;

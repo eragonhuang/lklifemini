@@ -73,9 +73,25 @@ page {
 }
 
 .m-menu .scroll-view {
-  width: 100%;
+  width: 90%;
   white-space: nowrap;
 }
+.m-menu .foldbtn{
+  width: 8%;
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+.m-menu .foldbtn text{
+  display: table-caption;
+  letter-spacing: 2px;
+}
+.m-menu .foldbtn .icon {
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBjbGFzcz0iaWNvbiIgc3R5bGU9IndpZHRoOiAxZW07aGVpZ2h0OiAxZW07dmVydGljYWwtYWxpZ246IG1pZGRsZTtmaWxsOiBjdXJyZW50Q29sb3I7b3ZlcmZsb3c6IGhpZGRlbjsiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwLWlkPSIzMjc5Ij48cGF0aCBkPSJNNzY4IDM4NGwtMjU2IDI1Ni0yNTYtMjU2eiIgZmlsbD0iIzE4MTgxOCIgcC1pZD0iMzI4MCI+PC9wYXRoPjwvc3ZnPg==');
+  width: 34rpx;
+  height: 30rpx;
+}
+
 .m-menu .scroll-view .scroll-item {
   display: inline-block;
   width: 62px;
@@ -220,7 +236,7 @@ page {
   width: 100%;
   height: auto;
   max-height: 780rpx;
-  padding: 31.25rpx 0 0 0;
+  padding: 16rpx 0 0 0;
   background: #fff;
   position: fixed;
   z-index: 9;
@@ -233,7 +249,7 @@ page {
 .attr-pop .collapse{
   border-top: 1px solid #f4f4f4;
   margin-top: 15rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 18rpx;
 }
 .attr-pop .collapse button{
   font-weight: bold;
@@ -257,6 +273,23 @@ page {
   line-height: 1;
   color: #333;
   width: fit-content;
+}
+
+ .attr-pop button{
+  display:flex;
+  justify-content: center;
+} 
+.attr-pop button .textbtn{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+}
+.attr-pop .icon {
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBjbGFzcz0iaWNvbiIgc3R5bGU9IndpZHRoOiAxZW07aGVpZ2h0OiAxZW07dmVydGljYWwtYWxpZ246IG1pZGRsZTtmaWxsOiBjdXJyZW50Q29sb3I7b3ZlcmZsb3c6IGhpZGRlbjsiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwLWlkPSIzNDQ4Ij48cGF0aCBkPSJNMjU2LjMyIDY0MGwyNTYtMjU2IDI1NiAyNTZ6IiBmaWxsPSIjMTgxODE4IiBwLWlkPSIzNDQ5Ij48L3BhdGg+PC9zdmc+');
+  width: 34rpx;
+  height: 30rpx;
+  margin-top: 12rpx;
 }
 
 .attr-pop .active text {
