@@ -44,7 +44,6 @@ page {
   font-size: 30rpx;
 }
 
-
 .m-menu {
   display: flex;
   height: 160rpx;
@@ -53,12 +52,6 @@ page {
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-}
-
-.m-menu .item {
-  flex: 1;
-  display: block;
-  padding: 20rpx 0;
 }
 
 .m-menu image {
@@ -210,3 +203,75 @@ page {
   font-size: 30rpx;
   color: #b4282d;
 }
+
+
+/*展开浮层样式*/
+.attr-pop-box {
+  width: 100%;
+  height: 93%;
+  position: fixed;
+  background: rgba(0, 0, 0, .5);
+  z-index: 8;
+  bottom: 0;
+  /* display: none; */
+}
+
+.attr-pop {
+  width: 100%;
+  height: auto;
+  max-height: 780rpx;
+  padding: 31.25rpx;
+  background: #fff;
+  position: fixed;
+  z-index: 9;
+}
+
+.attr-pop .scroll-item {
+  display: inline-block;
+  width: 62px;
+}
+
+/*
+.m-menu {
+  display: flex;
+  height: 160rpx;
+  width: 750rpx;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.m-menu image {
+  display: block;
+  width: 88rpx;
+  height: 88rpx;
+  margin: 0 auto;
+  margin-bottom: 12rpx;
+}
+
+.m-menu text {
+  display: block;
+  font-size: 26rpx;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1;
+  color: #333;
+  width: fit-content;
+}
+
+.m-menu .scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+.m-menu .scroll-view .scroll-item {
+  display: inline-block;
+  width: 62px;
+}
+
+.m-menu .active text {
+  background: none repeat scroll 0 0 #2a6f8d;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 2px 4px;
+  border-radius:3px;
+}*/

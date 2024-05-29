@@ -130,7 +130,6 @@
           <view class="value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:key="{{vitem.id}}" data-value-id="{{vitem.id}}" data-name-id="{{vitem.specification_id}}">{{vitem.value}}</view>
         </view>
       </view>
-
       <view class="number-item">
         <view class="name">数量</view>
         <view class="selnum">
