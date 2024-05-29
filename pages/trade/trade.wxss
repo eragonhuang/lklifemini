@@ -204,6 +204,7 @@ page {
   color: #b4282d;
 }
 
+@import "/utils/common.wxss";
 
 /*展开浮层样式*/
 .attr-pop-box {
@@ -213,14 +214,13 @@ page {
   background: rgba(0, 0, 0, .5);
   z-index: 8;
   bottom: 0;
-  /* display: none; */
 }
 
 .attr-pop {
   width: 100%;
   height: auto;
   max-height: 780rpx;
-  padding: 31.25rpx;
+  padding: 31.25rpx 0 0 0;
   background: #fff;
   position: fixed;
   z-index: 9;
@@ -230,18 +230,18 @@ page {
   display: inline-block;
   width: 62px;
 }
-
-/*
-.m-menu {
-  display: flex;
-  height: 160rpx;
-  width: 750rpx;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #fff;
+.attr-pop .collapse{
+  border-top: 1px solid #f4f4f4;
+  margin-top: 15rpx;
+  margin-bottom: 25rpx;
 }
-.m-menu image {
+.attr-pop .collapse button{
+  font-weight: bold;
+  margin-top: 25rpx;
+  padding-bottom: 5rpx;
+}
+
+.attr-pop image {
   display: block;
   width: 88rpx;
   height: 88rpx;
@@ -249,7 +249,7 @@ page {
   margin-bottom: 12rpx;
 }
 
-.m-menu text {
+.attr-pop text {
   display: block;
   font-size: 26rpx;
   text-align: center;
@@ -259,19 +259,10 @@ page {
   width: fit-content;
 }
 
-.m-menu .scroll-view {
-  width: 100%;
-  white-space: nowrap;
-}
-.m-menu .scroll-view .scroll-item {
-  display: inline-block;
-  width: 62px;
-}
-
-.m-menu .active text {
+.attr-pop .active text {
   background: none repeat scroll 0 0 #2a6f8d;
   border: 1px solid #ffffff;
   color: #ffffff;
   padding: 2px 4px;
   border-radius:3px;
-}*/
+}

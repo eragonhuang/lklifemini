@@ -15,11 +15,16 @@
   </scroll-view>
   </view>
 
-  <view class="attr-pop-box m-menu" hidden="{{false}}">
+  <view class="attr-pop-box" hidden="{{false}}">
     <view class="attr-pop ">
         <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
           <image src="{{item.icon_url}}" background-size="cover"></image>
           <text>{{item.name}}</text>
+        </view>
+        <view class="collapse">
+          <button class="btn-normal">
+            <text>收起</text>
+          </button>
         </view>
     </view>
  </view>
