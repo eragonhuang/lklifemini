@@ -245,6 +245,7 @@ page {
 .attr-pop .scroll-item {
   display: inline-block;
   width: 62px;
+  height: 64px;
 }
 .attr-pop .collapse{
   border-top: 1px solid #f4f4f4;
