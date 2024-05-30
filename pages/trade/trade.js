@@ -97,9 +97,6 @@ Page({
       switchFlag: flag
     });
   },
-
-  
-
   switchCate: function (event) {
     var that = this;
     var currentTarget = event.currentTarget;
@@ -109,5 +106,11 @@ Page({
 
    // this.getCurrentCategory(event.currentTarget.dataset.id);
    this.getGoodsList(event.currentTarget.dataset.id);
+  },
+  openGoods(event) {
+    var goodsId = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/goods/goods?id=' + goodsId,
+    });
   }
 })

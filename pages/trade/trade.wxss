@@ -220,6 +220,56 @@ page {
   color: #b4282d;
 }
 
+
+.goodsitem{
+  height: 212rpx;
+  width: 720rpx;
+  background: #fff;
+  padding: 30rpx 30rpx 30rpx 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.goodsitem:last-child{
+  border-bottom: 1px solid #fff;
+}
+
+.goodsitem .img{
+  float: left;
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.goodsitem .info{
+  float: right;
+  width: 540rpx;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20rpx;
+}
+
+.goodsitem .info .name{
+  font-size: 28rpx;
+  color: #333;
+  line-height: 40rpx;
+}
+
+
+.goodsitem .info .subtitle{
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #888;
+  line-height: 40rpx;
+}
+
+.goodsitem .info .price{
+  margin-top: 8rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 40rpx;
+}
+
 @import "/utils/common.wxss";
 
 /*展开浮层样式*/
