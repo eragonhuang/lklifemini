@@ -1,0 +1,36 @@
+<view style="display: flex;position: relative;">
+          <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%" bindscroll="getleft">
+            <view class="bottom">
+              <view class="map_btn_bg">
+                <view class="map_btn_font">1</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">2</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">3</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">4</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">5</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">6</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">7</view>
+              </view>
+              <view class="map_btn_bg">
+                <view class="map_btn_font">8</view>
+              </view>
+            </view>
+          </scroll-view>
+          <!--滚动条部分-->
+          <view class="slide">
+            <view class='slide-bar'>
+              <view class="slide-show" style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
+            </view>
+          </view>
+</view>

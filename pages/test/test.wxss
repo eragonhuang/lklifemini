@@ -1,0 +1,45 @@
+.scroll-view_H{
+  white-space: nowrap;
+  height: 230rpx;
+}
+.bottom {
+  display: flex;
+}
+.map_btn_bg {
+  width: 160rpx;
+  height: 180rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24rpx;
+  flex-direction: column;
+  flex-shrink: 0;
+  background-color: #fff;
+  margin-right: 20rpx;
+}
+.map_btn_font {
+  font-size: 28rpx;
+  font-family: PingFang SC, PingFang SC;
+  font-weight: 400;
+  color: #606060;
+}
+.slide{
+  height: 20rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 9999;
+  margin-left: -50rpx;
+ }
+ .slide .slide-bar{
+  width: 100rpx;
+  margin:0 auto;
+  height: 8rpx;
+  background:#eee;
+  border-radius: 8rpx;
+ }
+ .slide .slide-bar .slide-show{
+  height:100%;
+  border-radius: 8rpx;
+  background-color: #00aeff;
+}

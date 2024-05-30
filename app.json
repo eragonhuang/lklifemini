@@ -38,7 +38,8 @@
     "pages/ucenter/user/user",
     "pages/wxlogin/wxlogin",
     "pages/message/index/index",
-    "pages/message/contact/contact"
+    "pages/message/contact/contact",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -76,6 +77,12 @@
         "iconPath": "static/images/ic_menu_me_nor.png",
         "selectedIconPath": "static/images/ic_menu_me_pressed.png",
         "text": "我的"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "iconPath": "static/images/ic_menu_me_nor.png",
+        "selectedIconPath": "static/images/ic_menu_me_pressed.png",
+        "text": "test"
       }
     ]
   },
