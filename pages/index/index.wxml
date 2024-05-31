@@ -12,11 +12,19 @@
       </navigator>
     </swiper-item>
   </swiper>
-  <view class="m-menu">
-    <navigator class="item" url="{{item.url}}" wx:for="{{channel}}" wx:key="{{item.id}}">
-      <image src="{{item.icon_url}}" background-size="cover"></image>
-      <text>{{item.name}}</text>
-    </navigator>
+   <view class="m-menu">
+      <scroll-view class="scroll-view" scroll-x="{{true}}" bindscroll="getleft">
+        <view class="scroll-item" wx:for="{{channel}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="jumpChannel">
+          <image src="{{item.icon_url}}" background-size="cover"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </scroll-view>
+    <!--滚动条部分-->
+      <view class="slide">
+        <view class='slide-bar'>
+          <view class="slide-show" style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
+        </view>
+      </view>
   </view>
   <view class="a-section a-brand">
     <view class="h">

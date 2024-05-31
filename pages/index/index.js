@@ -13,14 +13,36 @@ Page({
     brands: [],
     //floorGoods: [],
     banner: [],
-    channel: []
+    channel: [],
+    slideWidth: '', //滑块宽
+    slideLeft: 0, //滑块位置
+    totalLength: '', //当前滚动列表总长
+    slideRatio: '' //滑块比例
   },
   onShareAppMessage: function () {
     return {
       title: 'NideShop',
-      desc: '仿网易严选微信小程序商城',
+      desc: 'sam小程序商城',
       path: '/pages/main/index'
     }
+  },
+
+  getRatio() {
+    var _totalLength =  6; //总长度（单个块宽度*总数）
+    var _ratio = 100 / _totalLength * (5 / wx.getSystemInfoSync().windowWidth); //滚动列表长度与滑条长度比例
+    var _showLength = 5 / _totalLength * 100; //当前显示蓝色滑条的长度(保留两位小数)
+    console.log(_ratio,_showLength);
+    this.setData({
+      slideWidth: _showLength,
+      slideRatio: _ratio
+    })
+  },
+  
+  //slideLeft动态变化
+  getleft(e) {
+    this.setData({
+     slideLeft: e.detail.scrollLeft * this.data.slideRatio
+    })
   },
 
   getIndexData: function () {
@@ -36,6 +58,7 @@ Page({
           banner: res.data.banner,
           channel: res.data.channel
         });
+        that.getRatio();
       }
     });
   },

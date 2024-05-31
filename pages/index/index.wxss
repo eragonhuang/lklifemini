@@ -44,19 +44,13 @@
 }
 
 .m-menu {
-  display: flex;
-  height: 181rpx;
+  /* display: flex; */
+  height: 200rpx;
   width: 750rpx;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-}
-
-.m-menu .item {
-  flex: 1;
-  display: block;
-  padding: 20rpx 0;
 }
 
 .m-menu image {
@@ -69,12 +63,46 @@
 
 .m-menu text {
   display: block;
-  font-size: 24rpx;
+  font-size: 26rpx;
   text-align: center;
   margin: 0 auto;
   line-height: 1;
   color: #333;
+  width: fit-content;
 }
+
+.m-menu .scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.m-menu .scroll-view .scroll-item {
+  display: inline-block;
+  width: 152rpx;
+  padding: 30rpx 0;
+}
+/* m-menu滚动条 */
+.slide{
+  height: 20rpx;
+  bottom: 0;
+  left: 50%;
+  z-index: 9999;
+  margin-left: -50rpx;
+  margin-top: 3rpx;
+ }
+ .slide .slide-bar{
+  width: 100rpx;
+  margin:0 auto;
+  height: 8rpx;
+  background:#eee;
+  border-radius: 8rpx;
+ }
+ .slide .slide-bar .slide-show{
+  height:100%;
+  border-radius: 8rpx;
+  background-color: #00aeff;
+}
+/* m-menu滚动条 */
 
 .a-section {
   width: 750rpx;
