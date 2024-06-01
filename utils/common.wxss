@@ -240,15 +240,15 @@
 }
 
 .pl-12 {
-  padding-left: 12px;
+  padding-left: 28rpx;
 }
 
 .pr-12 {
-  padding-right: 12px;
+  padding-right: 28rpx;
 }
 
 .pr-6 {
-  padding-right: 6px;
+  padding-right: 14rpx;
 }
 
 .m-top4 {

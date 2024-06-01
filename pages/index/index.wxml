@@ -14,10 +14,21 @@
   </swiper>
    <view class="m-menu">
       <scroll-view class="scroll-view" scroll-x="{{true}}" bindscroll="getleft">
-        <view class="scroll-item" wx:for="{{channel}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="jumpChannel">
-          <image src="{{item.icon_url}}" background-size="cover"></image>
-          <text>{{item.name}}</text>
-        </view>
+        
+          <view class="scroll-item" wx:for="{{channel}}">
+
+            <view data-id="{{item.id0}}" bindtap="jumpChannel">
+              <image src="{{item.icon_url0}}" background-size="cover"></image>
+              <text>{{item.name0}}</text>
+            </view>
+            <view class="subitem" data-id="{{item.id1}}" bindtap="jumpChannel">
+              <image src="{{item.icon_url1}}" background-size="cover"></image>
+              <text>{{item.name1}}</text>
+            </view>
+
+          </view>
+        
+      
       </scroll-view>
     <!--滚动条部分-->
       <view class="slide">

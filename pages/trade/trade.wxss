@@ -11,7 +11,7 @@ page {
 }
 
 .search {
-  height: 88rpx;
+  height: 5%;
   width: 100%;
   padding: 0 30rpx;
   background: #fff;
@@ -46,12 +46,13 @@ page {
 
 .m-menu {
   display: flex;
-  height: 160rpx;
+  height: 180rpx;
   width: 750rpx;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
+  padding: 40rpx 0;
 }
 
 .m-menu image {
@@ -80,7 +81,7 @@ page {
   width: 8%;
   display: flex;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 14rpx;
 }
 .m-menu .foldbtn text{
   display: table-caption;
@@ -94,22 +95,22 @@ page {
 
 .m-menu .scroll-view .scroll-item {
   display: inline-block;
-  width: 62px;
+  width: 145rpx;
 }
 
 .m-menu .active text {
   background: none repeat scroll 0 0 #2a6f8d;
-  border: 1px solid #ffffff;
+  border: 2rpx solid #ffffff;
   color: #ffffff;
-  padding: 2px 4px;
-  border-radius:3px;
+  padding: 4.68rpx 9.36rpx;
+  border-radius:7rpx;
 }
 
 .catalog {
   flex: 1;
   width: 100%;
   display: flex;
-  border-top: 1px solid #fafafa;
+  border-top: 2rpx solid #fafafa;
 }
 
 .catalog .nav {
@@ -255,7 +256,6 @@ page {
   line-height: 40rpx;
 }
 
-
 .goodsitem .info .subtitle{
   margin-top: 8rpx;
   font-size: 24rpx;
@@ -271,11 +271,10 @@ page {
 }
 
 @import "/utils/common.wxss";
-
 /*展开浮层样式*/
 .attr-pop-box {
   width: 100%;
-  height: 93%;
+  height: 95%;
   position: fixed;
   background: rgba(0, 0, 0, .5);
   z-index: 8;
@@ -286,7 +285,7 @@ page {
   width: 100%;
   height: auto;
   max-height: 780rpx;
-  padding: 16rpx 0 0 0;
+  padding: 20rpx 0 0 0;
   background: #fff;
   position: fixed;
   z-index: 9;
@@ -294,8 +293,8 @@ page {
 
 .attr-pop .scroll-item {
   display: inline-block;
-  width: 62px;
-  height: 64px;
+  width: 145rpx;
+  height: 150rpx;
 }
 .attr-pop .collapse{
   border-top: 1px solid #f4f4f4;
@@ -307,7 +306,6 @@ page {
   margin-top: 25rpx;
   padding-bottom: 5rpx;
 }
-
 .attr-pop image {
   display: block;
   width: 88rpx;
@@ -315,7 +313,6 @@ page {
   margin: 0 auto;
   margin-bottom: 12rpx;
 }
-
 .attr-pop text {
   display: block;
   font-size: 26rpx;
@@ -325,7 +322,6 @@ page {
   color: #333;
   width: fit-content;
 }
-
  .attr-pop button{
   display:flex;
   justify-content: center;
@@ -334,7 +330,7 @@ page {
   display:flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
+  width: 94rpx;
 }
 .attr-pop .icon {
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBjbGFzcz0iaWNvbiIgc3R5bGU9IndpZHRoOiAxZW07aGVpZ2h0OiAxZW07dmVydGljYWwtYWxpZ246IG1pZGRsZTtmaWxsOiBjdXJyZW50Q29sb3I7b3ZlcmZsb3c6IGhpZGRlbjsiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBwLWlkPSIzNDQ4Ij48cGF0aCBkPSJNMjU2LjMyIDY0MGwyNTYtMjU2IDI1NiAyNTZ6IiBmaWxsPSIjMTgxODE4IiBwLWlkPSIzNDQ5Ij48L3BhdGg+PC9zdmc+');
@@ -342,11 +338,10 @@ page {
   height: 30rpx;
   margin-top: 12rpx;
 }
-
 .attr-pop .active text {
   background: none repeat scroll 0 0 #2a6f8d;
   border: 1px solid #ffffff;
   color: #ffffff;
-  padding: 2px 4px;
-  border-radius:3px;
+  padding: 4.68rpx 9.36rpx;
+  border-radius:7rpx;
 }

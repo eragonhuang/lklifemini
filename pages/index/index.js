@@ -28,10 +28,9 @@ Page({
   },
 
   getRatio() {
-    var _totalLength =  6; //总长度（单个块宽度*总数）
-    var _ratio = 100 / _totalLength * (5 / wx.getSystemInfoSync().windowWidth); //滚动列表长度与滑条长度比例
-    var _showLength = 5 / _totalLength * 100; //当前显示蓝色滑条的长度(保留两位小数)
-    console.log(_ratio,_showLength);
+    var _totalLength =  1440; //总长度（单个块宽度*总数）
+    var _ratio = 100 / _totalLength * (780 / wx.getSystemInfoSync().windowWidth); //滚动列表长度与滑条长度比例
+    var _showLength = 780 / _totalLength * 100; //当前显示蓝色滑条的长度(保留两位小数)
     this.setData({
       slideWidth: _showLength,
       slideRatio: _ratio
