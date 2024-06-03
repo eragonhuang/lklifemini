@@ -18,7 +18,6 @@ Page({
   init: function () {
     var that = this;
     var channelId = wx.getStorageSync("mainChannelId");;
-    console.log("channelId:",channelId);
     this.setData({
       channelSelectId: channelId
     });
@@ -30,10 +29,6 @@ Page({
       }
     });
     this.getCatalog();
-  },
-  onLoad: function (options) {
-    var that = this;
-    this.init()
   },
   
   getCatalog: function () {
@@ -50,14 +45,19 @@ Page({
         that.setData({
           channel: _channel,
           navList: _navList,
-          currentCategory: res.data.currentCategory,
+          //currentCategory: res.data.currentCategory,
           categoryList: res.data.categoryList,
           selectId: _categoryId
         });
+        that.getGoodsList(that.data.selectId);
         wx.hideLoading();
       });
-    console.log("getCatalog_selectId:",that.data.selectId);
-    this.getGoodsList(that.data.selectId);
+    
+  },
+
+  onLoad: function (options) {
+    var that = this;
+    this.init()
   },
   onReady: function () {
     // 页面渲染完成
@@ -72,16 +72,7 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
-  getList: function () {
-    var that = this;
-    util.request(api.ApiRootUrl + 'api/catalog/' + that.data.currentCategory.cat_id)
-      .then(function (res) {
-        that.setData({
-          categoryList: res.data,
-        });
-      });
-  },
-
+ 
   unfoldChannel: function (event) {
     var that = this;
     var flag = (that.data.switchFlag)?false:true;
@@ -110,6 +101,7 @@ Page({
       navList: _navList,
       selectId: _categoryId
     });
+    this.getGoodsList(_categoryId);
   },
 
   switchCate: function (event) {
