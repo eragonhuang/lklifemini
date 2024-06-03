@@ -46,12 +46,14 @@ Page({
         wx.hideLoading();
       });
 
-    util.post(api.GoodsList, {categoryId: 1005000, page: 1, size: 100})
-      .then(function (res) {
-        that.setData({
-          goodsList: res.data.goodsList
-        });
-      });
+    // util.post(api.GoodsList, {categoryId: 108009, page: 1, size: 100})
+    //   .then(function (res) {
+    //     that.setData({
+    //       goodsList: res.data.goodsList
+    //     });
+    //   });
+
+    this.getGoodsList(1008009);
   },
   onReady: function () {
     // 页面渲染完成
