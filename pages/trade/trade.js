@@ -11,12 +11,17 @@ Page({
     scrollTop: 0,
     scrollHeight: 0,
     goodsList: [],
-    selectId: 108009,
+    selectId: 1008009,
     channelSelectId: 1,
     switchFlag:true
   },
-  onLoad: function (options) {
+  init: function () {
     var that = this;
+    var channelId = wx.getStorageSync("mainChannelId");;
+    console.log("channelId:",channelId);
+    this.setData({
+      channelSelectId: channelId
+    });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -24,8 +29,11 @@ Page({
         });
       }
     });
-
     this.getCatalog();
+  },
+  onLoad: function (options) {
+    var that = this;
+    this.init()
   },
   
   getCatalog: function () {
@@ -53,13 +61,14 @@ Page({
     //     });
     //   });
 
-    this.getGoodsList(1008009);
+    this.getGoodsList(that.data.selectId);
   },
   onReady: function () {
     // 页面渲染完成
   },
   onShow: function () {
     // 页面显示
+    this.init()
   },
   onHide: function () {
     // 页面隐藏
@@ -76,6 +85,14 @@ Page({
         });
       });
   },
+
+  unfoldChannel: function (event) {
+    var that = this;
+    var flag = (that.data.switchFlag)?false:true;
+    that.setData({
+      switchFlag: flag
+    });
+  },
   
   getGoodsList: function (categoryId) {
     var that = this;
@@ -91,19 +108,14 @@ Page({
   switchChannel: function (event) {
     var that = this;
     var _navList = that.data.categoryList['cate_'+event.currentTarget.dataset.id]
+    var _categoryId = _navList[0].category_id;
     that.setData({
       channelSelectId: event.currentTarget.dataset.id,
-      navList: _navList
+      navList: _navList,
+      selectId: _categoryId
     });
   },
 
-  switchGroup: function (event) {
-    var that = this;
-    var flag = (that.data.switchFlag)?false:true;
-    that.setData({
-      switchFlag: flag
-    });
-  },
   switchCate: function (event) {
     var that = this;
     var currentTarget = event.currentTarget;
@@ -118,10 +130,12 @@ Page({
    // this.getCurrentCategory(event.currentTarget.dataset.id);
    this.getGoodsList(cateId);
   },
+  
   openGoods(event) {
     var goodsId = event.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/goods/goods?id=' + goodsId,
     });
   }
+
 })

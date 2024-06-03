@@ -14,7 +14,7 @@
         </view>
       </scroll-view>
       <view class="foldbtn">
-              <button class="btn-normal" bindtap="switchGroup">
+              <button class="btn-normal" bindtap="unfoldChannel">
                 <text style="height: 15px;">展</text>
                 <text style="height: 12px;">开</text>
                 <image class="icon"></image>
@@ -29,7 +29,7 @@
           <text>{{item.name}}</text>
         </view>
         <view class="collapse">
-          <button class="btn-normal" bindtap="switchGroup">
+          <button class="btn-normal" bindtap="unfoldChannel">
             <view class="textbtn">
               <text>收起</text>
               <image class="icon"></image>

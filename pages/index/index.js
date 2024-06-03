@@ -81,4 +81,13 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+
+  openTrade(event) {
+    var id = event.currentTarget.dataset.id
+    wx.setStorageSync('mainChannelId', id);
+    wx.switchTab({
+      url: '/pages/trade/trade',
+    });
+  }
+
 })
