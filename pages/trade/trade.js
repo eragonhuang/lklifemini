@@ -35,10 +35,13 @@ Page({
       title: '加载中...',
     });
     util.request(api.CatalogList).then(function (res) {
+        var _channel = res.data.channel;
+        var _navList = res.data.categoryList.cate_1
         that.setData({
-          channel: res.data.channel,
-          navList: res.data.categoryList,
-          currentCategory: res.data.currentCategory
+          channel: _channel,
+          navList: _navList,
+          currentCategory: res.data.currentCategory,
+          categoryList: res.data.categoryList
         });
         wx.hideLoading();
       });
@@ -74,7 +77,7 @@ Page({
   
   getGoodsList: function (categoryId) {
     var that = this;
-    util.post(api.GoodsList, {categoryId: categoryId, page: 1, size: 100})
+    util.post(api.GoodsList, {categoryId: categoryId, page: 1, size: 1000})
       .then(function (res) {
         that.setData({
           goodsList: res.data.goodsList,
@@ -85,8 +88,10 @@ Page({
 
   switchChannel: function (event) {
     var that = this;
+    var _navList = that.data.categoryList['cate_'+event.currentTarget.dataset.id]
     that.setData({
-      channelSelectId: event.currentTarget.dataset.id
+      channelSelectId: event.currentTarget.dataset.id,
+      navList: _navList
     });
   },
 
@@ -100,12 +105,16 @@ Page({
   switchCate: function (event) {
     var that = this;
     var currentTarget = event.currentTarget;
+    var cateId = event.currentTarget.dataset.cateid;
+    that.setData({
+      selectId: cateId
+    });
     if (that.data.selectId == event.currentTarget.dataset.id) {
       return false;
     }
 
    // this.getCurrentCategory(event.currentTarget.dataset.id);
-   this.getGoodsList(event.currentTarget.dataset.id);
+   this.getGoodsList(cateId);
   },
   openGoods(event) {
     var goodsId = event.currentTarget.dataset.id

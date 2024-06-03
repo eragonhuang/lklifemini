@@ -42,7 +42,7 @@
   <view class="catalog">
 
     <scroll-view class="nav" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
-        <view class="item {{ selectId == item.id ? 'active' : ''}}" wx:for="{{navList}}"  data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
+        <view class="item {{ selectId == item.id ? 'active' : ''}}" wx:for="{{navList}}"  data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
     </scroll-view>
 
     <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
