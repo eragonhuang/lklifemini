@@ -11,8 +11,8 @@ Page({
     scrollTop: 0,
     scrollHeight: 0,
     goodsList: [],
-    selectId: 1008009,
-    channelSelectId: 1,
+    selectId: 0,
+    channelSelectId: 0,
     switchFlag:true
   },
   init: function () {
@@ -39,28 +39,24 @@ Page({
   getCatalog: function () {
     //CatalogList
     let that = this;
+    let _channelSelectId = that.data.channelSelectId
     wx.showLoading({
       title: '加载中...',
     });
     util.request(api.CatalogList).then(function (res) {
         var _channel = res.data.channel;
-        var _navList = res.data.categoryList.cate_1
+        var _navList = res.data.categoryList["cate_"+_channelSelectId]
+        var _categoryId = _navList[0].category_id;
         that.setData({
           channel: _channel,
           navList: _navList,
           currentCategory: res.data.currentCategory,
-          categoryList: res.data.categoryList
+          categoryList: res.data.categoryList,
+          selectId: _categoryId
         });
         wx.hideLoading();
       });
-
-    // util.post(api.GoodsList, {categoryId: 108009, page: 1, size: 100})
-    //   .then(function (res) {
-    //     that.setData({
-    //       goodsList: res.data.goodsList
-    //     });
-    //   });
-
+    console.log("getCatalog_selectId:",that.data.selectId);
     this.getGoodsList(that.data.selectId);
   },
   onReady: function () {
