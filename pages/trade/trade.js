@@ -12,19 +12,20 @@ Page({
     scrollHeight: 0,
     goodsList: [],
     selectId: 0,
-    channelSelectId: 0,
+    channelSelectId: 1,
     switchFlag:true
   },
   init: function () {
     var that = this;
-    var channelId = wx.getStorageSync("mainChannelId");;
+    var channelId = wx.getStorageSync("mainChannelId");
+    channelId = (channelId == "")?1:channelId;
     this.setData({
       channelSelectId: channelId
     });
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
-          scrollHeight: res.windowHeight-100
+          scrollHeight: res.windowHeight-110
         });
       }
     });
@@ -32,9 +33,8 @@ Page({
   },
   
   getCatalog: function () {
-    //CatalogList
     let that = this;
-    let _channelSelectId = that.data.channelSelectId
+    var _channelSelectId = this.data.channelSelectId
     wx.showLoading({
       title: '加载中...',
     });
