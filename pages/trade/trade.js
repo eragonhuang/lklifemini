@@ -99,7 +99,8 @@ Page({
     that.setData({
       channelSelectId: event.currentTarget.dataset.id,
       navList: _navList,
-      selectId: _categoryId
+      selectId: _categoryId,
+      switchFlag: true
     });
     this.getGoodsList(_categoryId);
   },
