@@ -21,7 +21,7 @@
               <image src="{{item.icon_url0}}" background-size="cover"></image>
               <text>{{item.name0}}</text>
             </view>
-            <view class="subitem" data-id="{{item.id1}}" bindtap="jumpChannel">
+            <view style="padding-top: 30rpx;" data-id="{{item.id1}}" bindtap="jumpChannel">
               <image src="{{item.icon_url1}}" background-size="cover"></image>
               <text>{{item.name1}}</text>
             </view>

@@ -83,9 +83,6 @@
   padding: 30rpx 0 30rpx 0;
 }
 
-.m-menu .scroll-view .subitem{
-  padding: 30rpx 0 0 0;
-}
 /* m-menu滚动条 */
 .slide{
   height: 20rpx;
