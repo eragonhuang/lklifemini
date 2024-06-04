@@ -31,8 +31,8 @@ var commonUtil = {
             this.post_url = 'https://jz.game.qq.com/cgi-bin/Gateway.fcgi?method=';
         }
     },
-    // 获取session_id
-    getSessionId() {
+   // 获取session_id
+   getSessionId() {
         try {
             var data = wx.getStorageSync('session_id');
             if (data) {
@@ -41,27 +41,21 @@ var commonUtil = {
                 } else {
                     return data.session_id;
                 }
-           = true;
-                break;
             }
-            item = nickName[i];
-            if (item.charCodeAt() < 127) {
-                // 字母、符号、数字
-                result += item;
-                length--;
-            } else {
-                if (length == 1) {
-                    isBreak = true;
-                    break;
-                }
-                result += item;
-                length -= 2;
-            }
+        } catch (e) {
+            return '';
         }
-        if (i < (nickName.length - 1) || isBreak) {
-            return result += '...';
-        } else {
-            return result;
+    },
+    // 设置session_id
+    setSessionId(session_id) {
+        try {
+            var data = {
+                session_id: session_id,
+                expire_time: (new Date).getTime() + 3600 * 1000
+            };
+            wx.setStorageSync('session_id', data)
+        } catch (e) {
+
         }
     },
     /**
@@ -96,6 +90,10 @@ var commonUtil = {
     // 获取星期
     getWeek(date) {
         return '周' + this.week[date.getDay()];
+    },
+    // 判断是否是emoji表情
+    isEmoji(str) {
+        return str.match(/\ud83c[\udf00-\udfff]|\ud83d[\udc00-\ude4f]|\ud83d[\ude80-\udeff]/g) != null
     },
     // 根据标签id获取标签名称
     getTagNameById(tagId) {
