@@ -60,7 +60,10 @@
         <view class="info">
           <view class="name">{{item.name}}</view>
           <view class="subtitle">{{item.goods_brief}}</view>
-          <view class="price">￥{{item.retail_price}}</view>
+          <view style="display: flex;">
+            <view class="price">￥{{item.retail_price}}</view>
+            <view><image class="cart-add"></image></view>
+          </view>
         </view>
       </view>
     </scroll-view>
