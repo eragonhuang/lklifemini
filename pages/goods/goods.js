@@ -18,7 +18,7 @@ Page({
     cartGoodsCount: 0,
     userHasCollect: 0,
     number: 1,
-    checkedSpecText: '请选择规格数量2',
+    checkedSpecText: '请选择规格数量',
     openAttr: false,
     noCollectImage: "/static/images/icon_collect.png",
     hasCollectImage: "/static/images/icon_collect_checked.png",

@@ -53,9 +53,10 @@ function request(url, data = {}, method = "GET") {
       },
       success: function (res) {
         console.log("success");
+        console.log(res);
         if (res.statusCode == 200) {
 
-          if (res.data.ret == -8) {
+          if (res.data.errno == -8) {
              //需要登录后才可以操作
              wx.navigateTo({
                url: '/pages/wxlogin/wxlogin'
