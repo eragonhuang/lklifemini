@@ -265,6 +265,7 @@ page {
 
 .goodsitem .info .price{
   margin-top: 8rpx;
+  margin-right: 210rpx;
   font-size: 28rpx;
   color: #333;
   line-height: 40rpx;

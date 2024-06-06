@@ -62,7 +62,7 @@
           <view class="subtitle">{{item.goods_brief}}</view>
           <view style="display: flex;">
             <view class="price">￥{{item.retail_price}}</view>
-            <view><image class="cart-add"></image></view>
+            <view style="margin-top: 8rpx;"><image class="cart-add"></image></view>
           </view>
         </view>
       </view>
