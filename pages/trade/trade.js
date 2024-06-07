@@ -139,6 +139,11 @@ Page({
     wx.navigateTo({
       url: '/pages/goods/goods?id=' + goodsId,
     });
+  },
+
+  addCart(event) {
+    var goodsId = event.currentTarget.dataset.goodsid
+    console.log("GoodsId:",goodsId);
   }
 
 })

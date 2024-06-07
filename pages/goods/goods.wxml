@@ -1,6 +1,6 @@
 <view class="container">
   <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
+    <swiper-item wx:for="{{gallery}}" wx:key="id">
       <image src="{{item.img_url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
@@ -53,7 +53,7 @@
           {{comment.data.content}}
         </view>
         <view class="imgs" wx:if="{{comment.data.pic_list.length > 0}}">
-          <image class="img" wx:for="{{comment.data.pic_list}}" wx:key="{{item.id}}" src="{{item.pic_url}}"></image>
+          <image class="img" wx:for="{{comment.data.pic_list}}" wx:key="id" src="{{item.pic_url}}"></image>
         </view>
         <!-- <view class="spec">白色 2件</view> -->
       </view>
@@ -62,7 +62,7 @@
   <view class="goods-attr">
     <view class="t">商品参数</view>
     <view class="l">
-      <view class="item" wx:for="{{attribute}}" wx:key="{{item.name}}">
+      <view class="item" wx:for="{{attribute}}" wx:key="name">
         <text class="left">{{item.name}}</text>
         <text class="right">{{item.value}}</text>
       </view>
@@ -81,7 +81,7 @@
       <text class="title">常见问题</text>
     </view>
     <view class="b">
-      <view class="item" wx:for="{{issueList}}" wx:key="{{item.id}}">
+      <view class="item" wx:for="{{issueList}}" wx:key="id">
         <view class="question-box">
           <text class="spot"></text>
           <text class="question">{{item.question}}</text>
@@ -99,7 +99,7 @@
       <text class="title">为您推荐</text>
     </view>
     <view class="b">
-      <view class="item" wx:for="{{relatedGoods}}" wx:key="{{item.id}}">
+      <view class="item" wx:for="{{relatedGoods}}" wx:key="id">
         <navigator url="/pages/goods/goods?id={{item.id}}">
           <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image>
           <text class="name">{{item.name}}</text>
@@ -124,7 +124,7 @@
       </view>
     </view>
     <view class="spec-con">
-      <view class="spec-item" wx:for="{{specificationList}}" wx:key="{{item.specification_id}}">
+      <view class="spec-item" wx:for="{{specificationList}}" wx:key="specification_id">
         <view class="name">{{item.name}}</view>
         <view class="values">
           <view class="value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:key="{{vitem.id}}" data-value-id="{{vitem.id}}" data-name-id="{{vitem.specification_id}}">{{vitem.value}}</view>

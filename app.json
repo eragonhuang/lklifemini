@@ -34,7 +34,6 @@
     "pages/goods/goods",
     "pages/topicDetail/topicDetail",
     "pages/trade/trade",
-    "pages/index/posting/posting",
     "pages/ucenter/user/user",
     "pages/wxlogin/wxlogin",
     "pages/message/index/index",

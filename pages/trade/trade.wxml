@@ -8,7 +8,7 @@
   
     <view class="m-menu">
       <scroll-view class="scroll-view" scroll-x="{{true}}">
-        <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
+        <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="id" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
           <image src="{{item.icon_url}}" background-size="cover"></image>
           <text>{{item.name}}</text>
         </view>
@@ -24,7 +24,7 @@
 
   <view class="attr-pop-box" hidden="{{switchFlag}}">
     <view class="attr-pop ">
-        <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
+        <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="id" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
           <image src="{{item.icon_url}}" background-size="cover"></image>
           <text>{{item.name}}</text>
         </view>
@@ -42,7 +42,7 @@
   <view class="catalog">
 
     <scroll-view class="nav" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
-        <view class="item {{ selectId == item.category_id ? 'active' : ''}}" wx:for="{{navList}}"  data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
+        <view class="item {{ selectId == item.category_id ? 'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
     </scroll-view>
 
     <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
@@ -55,14 +55,14 @@
             </navigator>
         </view>
       </view> -->
-      <view class="goodsitem" bindtap="openGoods" wx:for="{{goodsList}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-index="{{index}}">
-        <image class="img" src="{{item.list_pic_url}}"></image>
+      <view class="goodsitem" wx:for="{{goodsList}}" wx:key="id" data-index="{{index}}">
+        <image class="img" src="{{item.list_pic_url}}" bindtap="openGoods" data-id="{{item.id}}"></image>
         <view class="info">
-          <view class="name">{{item.name}}</view>
-          <view class="subtitle">{{item.goods_brief}}</view>
+          <view class="name" bindtap="openGoods" data-id="{{item.id}}">{{item.name}}</view>
+          <view class="subtitle" bindtap="openGoods" data-id="{{item.id}}">{{item.goods_brief}}</view>
           <view style="display: flex;">
             <view class="price">￥{{item.retail_price}}</view>
-            <view style="margin-top: 8rpx;"><image class="cart-add"></image></view>
+            <view style="margin-top: 8rpx;" bindtap="addCart" data-goodsid="{{item.id}}"><image class="cart-add"></image></view>
           </view>
         </view>
       </view>
