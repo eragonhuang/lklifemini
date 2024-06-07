@@ -13,7 +13,8 @@ Page({
     goodsList: [],
     selectId: 0,
     channelSelectId: 1,
-    switchFlag:true
+    switchFlag:true,
+    isBack:0  //是否下一页面返回
   },
   init: function () {
     var that = this;
@@ -52,11 +53,9 @@ Page({
         that.getGoodsList(that.data.selectId);
         wx.hideLoading();
       });
-    
   },
 
   onLoad: function (options) {
-    var that = this;
     this.init()
   },
   onReady: function () {
@@ -64,7 +63,22 @@ Page({
   },
   onShow: function () {
     // 页面显示
-    this.init()
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length - 1];
+    if (currPage.data.isBack==1) {
+      console.log(currPage.data.isBack)
+      this.setData({
+        isBack: 1,
+      })       
+    }
+
+    if (this.data.isBack==1) {//上一页返回，不加载新内容
+      this.setData({
+        isBack:0,
+      }) 
+    } else {
+      this.init()
+    }
   },
   onHide: function () {
     // 页面隐藏

@@ -207,7 +207,13 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
-
+    console.log('talkDetComment-onUnload')
+    var pages = getCurrentPages(); //当前页面
+    var prevPage = pages[pages.length - 2]; //上一页面
+    prevPage.setData({
+      //直接给上一个页面赋值
+      isBack: 1,
+    });
   },
   switchAttrPop: function () {
     if (this.data.openAttr == false) {
