@@ -144,6 +144,25 @@ Page({
   addCart(event) {
     var goodsId = event.currentTarget.dataset.goodsid
     console.log("GoodsId:",goodsId);
+    
+    //添加到购物车
+    util.request(api.CartAdd, { goodsId: goodsId, number: 1, productId: -1}, "POST")
+    .then(function (res) {
+      let _res = res;
+      if (_res.errno == 0) {
+        wx.showToast({
+          title: '添加成功'
+        });
+      } else {
+        wx.showToast({
+          image: '/static/images/icon_error.png',
+          title: _res.errmsg,
+          mask: true
+        });
+      }
+
+    });
+
   }
 
 })
