@@ -265,10 +265,11 @@ page {
 
 .goodsitem .info .price{
   margin-top: 8rpx;
-  margin-right: 210rpx;
+  margin-right: 140rpx;
   font-size: 28rpx;
   color: #333;
   line-height: 40rpx;
+  width: 200rpx;
 }
 
 .cart-add{
