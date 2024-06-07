@@ -43,7 +43,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "共享山姆",
+    "navigationBarTitleText": "ShareSam",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
