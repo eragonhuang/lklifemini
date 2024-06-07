@@ -6,7 +6,7 @@
     </navigator>
   </view>
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+    <swiper-item wx:for="{{banner}}" wx:key="id">
       <navigator url="{{item.link}}">
         <image src="{{item.image_url}}" background-size="cover"></image>
       </navigator>
@@ -14,7 +14,7 @@
   </swiper>
    <view class="m-menu">
       <scroll-view class="scroll-view" scroll-x="{{true}}" bindscroll="getleft"> 
-          <view class="scroll-item" wx:for="{{channel}}">
+          <view class="scroll-item" wx:for="{{channel}}" wx:key="id0">
 
             <view data-id="{{item.id0}}" bindtap="openTrade">
               <image src="{{item.icon_url0}}" background-size="cover"></image>
@@ -41,7 +41,7 @@
       </navigator>
     </view>
     <view class="b">
-      <view class="item item-1" wx:for="{{brand}}" wx:key="item.id">
+      <view class="item item-1" wx:for="{{brand}}" wx:key="id">
         <navigator url="/pages/brandDetail/brandDetail?id={{item.id}}">
           <view class="wrap">
             <image class="img" src="{{item.new_pic_url}}" mode="aspectFill"></image>
@@ -64,7 +64,7 @@
       </view>
     </view>
     <view class="b">
-      <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+      <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
         <navigator url="../goods/goods?id={{item.id}}">
           <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image>
           <text class="name">{{item.name}}</text>
@@ -82,7 +82,7 @@
       </view>
     </view>
     <view class="b">
-      <view class="item" wx:for="{{hotGoods}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+      <view class="item" wx:for="{{hotGoods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
         <navigator url="/pages/goods/goods?id={{item.id}}">
           <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image>
           <view class="right">
@@ -106,7 +106,7 @@
     </view>
     <view class="b">
       <scroll-view scroll-x="true" class="list">
-        <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+        <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="id">
           <navigator url="../topicDetail/topicDetail?id={{item.id}}">
             <image class="img" src="{{item.scene_pic_url}}" background-size="cover"></image>
             <view class="np">
