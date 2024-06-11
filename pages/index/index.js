@@ -69,14 +69,17 @@ Page({
       });
     });
 
-    //设置购物车数量
-    app.globalData.cartCount++
-    if(app.globalData.cartCount>0){
-      wx.setTabBarBadge({
-        index: 2,
-        text: String(app.globalData.cartCount)
-      })
-    }
+    //更新购物车Badge
+    util.request(api.CartCount).then(res => {
+      app.globalData.cartCount = res.data.cartCount
+      if(app.globalData.cartCount>0){
+        wx.setTabBarBadge({
+          index: 2,
+          text: String(app.globalData.cartCount)
+        })
+      }
+    });
+    
 
   },
   onReady: function () {

@@ -12,14 +12,12 @@ Page({
       "checkedGoodsCount": 0,
       "checkedGoodsAmount": 0.00
     },
-    isEditCart: false,
+    isEditCart: true,
     checkedAllStatus: true,
     editCartList: []
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-
-
   },
   onReady: function () {
     // 页面渲染完成
@@ -100,14 +98,16 @@ Page({
   },
   getCheckedGoodsCount: function(){
     let checkedGoodsCount = 0;
+    console.log("cart:",this.data.cartGoods)
     this.data.cartGoods.forEach(function (v) {
-      if (v.checked === true) {
-        checkedGoodsCount += v.number;
+      if (v.checked == 1) {
+        checkedGoodsCount += parseInt(v.number);
       }
     });
-    console.log(checkedGoodsCount);
+    console.log("checkedGoodsCount:",checkedGoodsCount);
     return checkedGoodsCount;
   },
+
   checkedAll: function () {
     let that = this;
 
@@ -194,12 +194,23 @@ Page({
 
     let itemIndex = event.target.dataset.itemIndex;
     let cartItem = this.data.cartGoods[itemIndex];
+    if(parseInt(cartItem.number) == 1) return
     let number = (parseInt(cartItem.number) - 1 > 1) ? parseInt(cartItem.number) - 1 : 1;
     cartItem.number = number;
     this.setData({
-      cartGoods: this.data.cartGoods
+      cartGoods: this.data.cartGoods,
+      'cartTotal.checkedGoodsCount': this.getCheckedGoodsCount()
     });
     this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+    //设置购物车Badge
+    app.globalData.cartCount--
+    if(app.globalData.cartCount>0){
+      console.log("app.globalData.cartCount:",app.globalData.cartCount);
+      wx.setTabBarBadge({
+        index: 2,
+        text: String(app.globalData.cartCount)
+      })
+    }
   },
   addNumber: function (event) {
     let itemIndex = event.target.dataset.itemIndex;
@@ -209,10 +220,19 @@ Page({
     console.log(number)
     cartItem.number = number;
     this.setData({
-      cartGoods: this.data.cartGoods
+      cartGoods: this.data.cartGoods,
+      'cartTotal.checkedGoodsCount': this.getCheckedGoodsCount()
     });
     this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
-
+    //设置购物车Badge
+    app.globalData.cartCount++
+    if(app.globalData.cartCount>0){
+      console.log("app.globalData.cartCount:",app.globalData.cartCount);
+      wx.setTabBarBadge({
+        index: 2,
+        text: String(app.globalData.cartCount)
+      })
+    }
   },
   checkoutOrder: function () {
     //获取已选择的商品

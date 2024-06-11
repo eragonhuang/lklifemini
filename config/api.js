@@ -26,6 +26,7 @@ module.exports = {
   CartGoodsCount: ApiRootUrl2 + 'method=cartgoodscount', // 获取购物车商品件数
   GoodsRelated: ApiRootUrl2 + 'method=related',  //商品详情页的关联商品（大家都在看）
   CartList: ApiRootUrl2 + 'method=cartlist', //获取购物车的数据
+  CartCount: ApiRootUrl2 + 'method=cartcount', //获取购物车的数量
   CartAdd: ApiRootUrl2 + 'method=cartadd', //添加商品到购物车
   CartUpdate: ApiRootUrl2 + 'method=cartmod', //更新购物车的商品
   CartDelete: ApiRootUrl2 + 'method=cartdel', // 删除购物车的商品

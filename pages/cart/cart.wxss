@@ -202,6 +202,7 @@ page{
     display: flex;
     height: 52rpx;
     overflow: hidden;
+    margin-top: 28rpx;
 }
 
 .cart-view .item.edit .price{

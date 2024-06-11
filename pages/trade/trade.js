@@ -1,6 +1,8 @@
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 
+//获取应用实例
+const app = getApp()
 Page({
   data: {
     channel: [],
@@ -79,6 +81,15 @@ Page({
     } else {
       this.init()
     }
+     
+    //设置购物车Badge
+    if(app.globalData.cartCount>0){
+      console.log("app.globalData.cartCount:",app.globalData.cartCount);
+      wx.setTabBarBadge({
+        index: 2,
+        text: String(app.globalData.cartCount)
+      })
+    }
   },
   onHide: function () {
     // 页面隐藏
@@ -153,6 +164,16 @@ Page({
         wx.showToast({
           title: '添加成功'
         });
+      //更新购物车Badge
+      app.globalData.cartCount++
+      if(app.globalData.cartCount>0){
+        console.log("app.globalData.cartCount:",app.globalData.cartCount);
+        wx.setTabBarBadge({
+          index: 2,
+          text: String(app.globalData.cartCount)
+        })
+      }
+
       } else {
         wx.showToast({
           image: '/static/images/icon_error.png',

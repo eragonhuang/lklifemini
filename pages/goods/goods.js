@@ -1,8 +1,9 @@
-var app = getApp();
 var WxParse = require('../../lib/wxParse/wxParse.js');
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 
+//获取应用实例
+const app = getApp()
 Page({
   data: {
     id: 0,
@@ -184,10 +185,10 @@ Page({
     });
     var that = this;
     this.getGoodsInfo();
-    util.request(api.CartGoodsCount).then(function (res) {
+    util.request(api.CartCount).then(function (res) {
       if (res.errno === 0) {
         that.setData({
-          cartGoodsCount: res.data.cartTotal.goodsCount
+          cartGoodsCount: res.data.cartCount
         });
 
       }
@@ -312,6 +313,9 @@ Page({
               openAttr: !that.data.openAttr,
               cartGoodsCount: _res.data.cartTotal.goodsCount
             });
+            //更新购物车Badge,非tabBar页wx.setTabBarBadge无效
+            app.globalData.cartCount++
+
           } else {
             wx.showToast({
               image: '/static/images/icon_error.png',

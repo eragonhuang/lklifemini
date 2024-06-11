@@ -41,7 +41,6 @@ function formatNumber(n) {
 function request(url, data = {}, method = "GET") {
   console.log(url);
   return new Promise(function (resolve, reject) {
-    console.log(url);
     wx.request({
       url: url,
       data: data,
@@ -52,8 +51,7 @@ function request(url, data = {}, method = "GET") {
         'X-Lkshop-Token': wx.getStorageSync('token')
       },
       success: function (res) {
-        console.log("success");
-        console.log(res);
+        console.log("success",res);
         if (res.statusCode == 200) {
 
           if (res.data.errno == -8) {
