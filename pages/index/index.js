@@ -68,6 +68,16 @@ Page({
         goodsCount: res.data.goodsCount
       });
     });
+
+    //设置购物车数量
+    app.globalData.cartCount++
+    if(app.globalData.cartCount>0){
+      wx.setTabBarBadge({
+        index: 2,
+        text: String(app.globalData.cartCount)
+      })
+    }
+
   },
   onReady: function () {
     // 页面渲染完成

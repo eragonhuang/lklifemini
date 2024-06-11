@@ -11,10 +11,6 @@ App({
         this.globalData.token = wx.getStorageSync('token');
         this.globalData.userId = wx.getStorageSync('userId');
       }
-      /*wx.setTabBarBadge({
-        index: 2,
-        text: '1'
-      })*/
 
     }catch (e) {
       console.log("userinfo exp:"+e);
@@ -27,6 +23,7 @@ App({
       avatarUrl: '/static/images/default.png',
       userId: 0
     },
+    cartCount: 0,   //购物车商品数量
     contactNews:[{userId:5,count:3}],
     token: '',
     navList: [{"id":1,"name":"团购空间"},{"id":2,"name":"跳蚤市场"},{"id":3,"name":"房屋租赁"},{"id":4,"name":"兴趣社团"},{"id":5,"name":"其他"}],
