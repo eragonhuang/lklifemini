@@ -1,45 +1,74 @@
-.scroll-view_H{
-  white-space: nowrap;
-  height: 230rpx;
+.scroll_box {
+  /* background-color: #f0f0f0; */
+  width: 100%;
+  height: calc(100vh - 500rpx);
+  margin-top: 28rpx;
+  padding: 0 22rpx;
 }
-.bottom {
-  display: flex;
-}
-.map_btn_bg {
-  width: 160rpx;
-  height: 180rpx;
+
+
+/* item盒子 */
+.box_item {
+  background-color: #fff;
+  width: 100%;
+  height: 100rpx;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 24rpx;
-  flex-direction: column;
-  flex-shrink: 0;
-  background-color: #fff;
-  margin-right: 20rpx;
+  border-bottom: 2rpx dashed #EDEDED;
+  padding-left: 30rpx;
+  position: relative;
 }
-.map_btn_font {
-  font-size: 28rpx;
+
+
+.head_title {
+  height: 40rpx;
   font-family: PingFang SC, PingFang SC;
   font-weight: 400;
-  color: #606060;
+  font-size: 28rpx;
+  color: #14AD00;
+  line-height: 38rpx;
+  text-align: left;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  text-transform: none;
 }
-.slide{
-  height: 20rpx;
+
+.before-icon {
+  display: inline-block;
+  width: 9rpx;
+  height: 9rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+  background: #14AD00;
+}
+
+.moveArea {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% + 180rpx);
+  justify-content: center;
+  left: -180rpx;
+  height: 102rpx;
+}
+
+.movableView {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 180rpx);
+  z-index: 1001;
+  left: 180rpx;
+}
+
+.itemDelet {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  z-index: 9999;
-  margin-left: -50rpx;
- }
- .slide .slide-bar{
-  width: 100rpx;
-  margin:0 auto;
-  height: 8rpx;
-  background:#eee;
-  border-radius: 8rpx;
- }
- .slide .slide-bar .slide-show{
-  height:100%;
-  border-radius: 8rpx;
-  background-color: #00aeff;
+  right: 0;
+  line-height: 100rpx;
+  background-color: rgb(252, 65, 65);
+  margin-right: 6rpx;
+  bottom: 2rpx;
+  width: 180rpx;
+  text-align: center;
+  color: #fff;
 }
+

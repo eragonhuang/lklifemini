@@ -1,36 +1,22 @@
-<view style="display: flex;position: relative;">
-          <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%" bindscroll="getleft">
-            <view class="bottom">
-              <view class="map_btn_bg">
-                <view class="map_btn_font">1</view>
+<view class="list">
+  <scroll-view class='scroll_box' scroll-y='true' wx:if="{{listData.length}}" enhanced show-scrollbar="{{false}}">
+    <block wx:for="{{listData}}" wx:key="themeId">
+      <movable-area class="moveArea" catch:tap="handleFindDetail" data-id="{{item.themeId}}">
+        <movable-view damping="100" class="movableView" direction="horizontal" inertia="{{true}}" out-of-bounds="{{true}}" animation="true" x="{{item.leftx}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
+          <view style="display: flex;flex-direction: row;width: 100%;height: 100%;">
+            <view class="box_item">
+              <view class="head_title">
+                <text class="before-icon"></text>
+                <text class="title-content">{{item.name}}</text>
               </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">2</view>
-              </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">3</view>
-              </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">4</view>
-              </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">5</view>
-              </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">6</view>
-              </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">7</view>
-              </view>
-              <view class="map_btn_bg">
-                <view class="map_btn_font">8</view>
-              </view>
-            </view>
-          </scroll-view>
-          <!--滚动条部分-->
-          <view class="slide">
-            <view class='slide-bar'>
-              <view class="slide-show" style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};"></view>
             </view>
           </view>
+        </movable-view>
+        <view class="itemDelet" data-id="{{item.themeId}}" catch:tap="deleteHistory">删除</view>
+      </movable-area>
+    </block>
+
+  </scroll-view>
+
+
 </view>
