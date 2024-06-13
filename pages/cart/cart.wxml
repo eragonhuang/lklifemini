@@ -14,16 +14,13 @@
     <view class="list">
       <view class="group-item">
         <view class="goods">
-          <view class="item edit'}}" wx:for="{{cartGoods}}" wx:key="{{item.id}}">
+          <view class="item edit" wx:for="{{cartGoods}}" wx:key="{{item.id}}">
+            <movable-area class="moveArea" catch:tap="handleFindDetail" data-id="{{item.id}}">
+            <movable-view damping="100" class="movableView" direction="horizontal" inertia="{{true}}" out-of-bounds="{{true}}" animation="true" x="{{item.leftx}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
             <view class="checkbox {{item.checked ? 'checked' : ''}}" bindtap="checkedItem" data-item-index="{{index}}"></view>
             <view class="cart-goods">
               <image class="img" src="{{item.list_pic_url}}"></image>
               <view class="info">
-                <!-- <view class="t">
-                  <text class="name">{{item.goods_name}}</text>
-                  <text class="num">x{{item.number}}</text>
-                </view> -->
-                <!-- <view class="attr">{{ isEditCart ? '已选择:' : ''}}{{item.goods_specifition_name_value}}</view> -->
                 <view><text class="name">{{item.goods_name}}</text></view>
                 <view class="b">
                   <text class="price">￥{{item.retail_price}}</text>
@@ -35,6 +32,9 @@
                 </view>
               </view>
             </view>
+            </movable-view>
+            <view class="itemDelet" data-id="{{item.id}}" catch:tap="deleteHistory">删除</view>
+            </movable-area>
           </view>
         </view>
       </view>
