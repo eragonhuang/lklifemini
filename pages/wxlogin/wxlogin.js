@@ -50,6 +50,17 @@ Page({
       wx.setStorageSync('token', res.data.token);
       wx.setStorageSync('userId', res.data.userId);
       wx.navigateBack( {delta: 1} );
+      
+      //设置购物车Badge
+      app.globalData.cartCount = res.data.cartCount
+      if(app.globalData.cartCount>0){
+      console.log("app.globalData.cartCount:",app.globalData.cartCount);
+      wx.setTabBarBadge({
+        index: 2,
+        text: String(app.globalData.cartCount)
+       })
+     }
+
     }).catch((err) => {
       console.log(err)
     })

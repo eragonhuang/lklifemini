@@ -354,4 +354,32 @@ Page({
 
   },
 
+  deleteCartGoods: function (event){
+    let that = this;
+    let goodsIndex = event.target.dataset.id;
+
+    wx.showModal({
+      title: '删除商品',
+      content: '确认从购物车删除所选商品？',
+      success: function (res) {
+        if (res.confirm) {
+          
+          util.request(api.CartDelete, {
+            productIds: goodsIndex
+          }, 'POST').then(function (res) {
+            if (res.errno === 0) {
+              that.setData({
+                cartGoods: res.data.cartList,
+                cartTotal: res.data.cartTotal
+              });
+            }
+          });
+
+        }
+      }
+    })
+
+    
+  }
+
 })

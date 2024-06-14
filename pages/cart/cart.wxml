@@ -33,7 +33,7 @@
               </view>
             </view>
             </movable-view>
-            <view class="itemDelet" data-id="{{item.id}}" catch:tap="deleteHistory">删除</view>
+            <view class="itemDelet" data-id="{{item.product_id}}" catch:tap="deleteCartGoods">删除</view>
             </movable-area>
           </view>
         </view>
