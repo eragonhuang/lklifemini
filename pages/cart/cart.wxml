@@ -14,8 +14,8 @@
     <view class="list">
       <view class="group-item">
         <view class="goods">
-          <view class="item edit" wx:for="{{cartGoods}}" wx:key="{{item.id}}">
-            <movable-area class="moveArea" catch:tap="handleFindDetail" data-id="{{item.id}}">
+          <view class="item edit" wx:for="{{cartGoods}}" wx:key="id">
+            <movable-area class="moveArea" data-id="{{item.id}}">
             <movable-view damping="100" class="movableView" direction="horizontal" inertia="{{true}}" out-of-bounds="{{true}}" animation="true" x="{{item.leftx}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}">
             <view class="checkbox {{item.checked ? 'checked' : ''}}" bindtap="checkedItem" data-item-index="{{index}}"></view>
             <view class="cart-goods">
@@ -33,7 +33,7 @@
               </view>
             </view>
             </movable-view>
-            <view class="itemDelet" data-id="{{item.product_id}}" catch:tap="deleteCartGoods">删除</view>
+            <view class="itemDelet" data-id="{{item.product_id}}" data-index="{{index}}" catch:tap="deleteCartGoods">删除</view>
             </movable-area>
           </view>
         </view>

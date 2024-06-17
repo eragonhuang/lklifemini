@@ -351,7 +351,6 @@ Page({
    * 触摸结束
    */
   touchE: function (e) {
-
   },
 
   deleteCartGoods: function (event){
@@ -374,7 +373,12 @@ Page({
               });
             }
           });
-
+        }else{
+          let index = event.currentTarget.dataset.index;
+          that.data.cartGoods[index].leftx = 0;
+          that.setData({
+            cartGoods: that.data.cartGoods,
+          });
         }
       }
     })
