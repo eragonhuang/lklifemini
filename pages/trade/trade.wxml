@@ -45,24 +45,26 @@
         <view class="item {{ selectId == item.category_id ? 'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
     </scroll-view>
 
-    <view class="service-policy">
-      <view class="item">新品</view>
-      <view class="item">冷饮</view>
-    </view>
+    <view class="goodslist">
+      <view class="service-policy">
+        <view class="item">新品</view>
+        <view class="item">冷饮</view>
+      </view>
 
-    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
-      <view class="goodsitem" wx:for="{{goodsList}}" wx:key="id" data-index="{{index}}">
-        <image class="img" src="{{item.list_pic_url}}" bindtap="openGoods" data-id="{{item.id}}"></image>
-        <view class="info">
-          <view class="name" bindtap="openGoods" data-id="{{item.id}}">{{item.name}}</view>
-          <view class="subtitle" bindtap="openGoods" data-id="{{item.id}}">{{item.goods_brief}}</view>
-          <view style="display: flex;">
-            <view class="price">￥{{item.retail_price}}</view>
-            <view style="margin-top: 8rpx;" bindtap="addCart" data-goodsid="{{item.id}}"><image class="cart-add"></image></view>
+      <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
+        <view class="goodsitem" wx:for="{{goodsList}}" wx:key="id" data-index="{{index}}">
+          <image class="img" src="{{item.list_pic_url}}" bindtap="openGoods" data-id="{{item.id}}"></image>
+          <view class="info">
+            <view class="name" bindtap="openGoods" data-id="{{item.id}}">{{item.name}}</view>
+            <view class="subtitle" bindtap="openGoods" data-id="{{item.id}}">{{item.goods_brief}}</view>
+            <view style="display: flex;">
+              <view class="price">￥{{item.retail_price}}</view>
+              <view style="margin-top: 8rpx;" bindtap="addCart" data-goodsid="{{item.id}}"><image class="cart-add"></image></view>
+            </view>
           </view>
         </view>
-      </view>
-    </scroll-view>
+      </scroll-view>
+    </view>
 
   </view>
 </view>
