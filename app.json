@@ -72,12 +72,6 @@
         "text": "购物车"
       },
       {
-        "pagePath": "pages/test/test",
-        "iconPath": "static/images/ic_menu_shoping_nor.png",
-        "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
-        "text": "test"
-      },
-      {
         "pagePath": "pages/ucenter/user/user",
         "iconPath": "static/images/ic_menu_me_nor.png",
         "selectedIconPath": "static/images/ic_menu_me_pressed.png",

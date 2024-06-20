@@ -14,7 +14,7 @@
         </view>
       </scroll-view>
       <view class="foldbtn">
-              <button class="btn-normal" bindtap="unfoldChannel">
+              <button class="btn-normal" data-type="3" bindtap="unfoldChannel">
                 <text style="height: 15px;">展</text>
                 <text style="height: 12px;">开</text>
                 <image class="icon"></image>
@@ -22,14 +22,14 @@
       </view>
   </view>
 
-  <view class="attr-pop-box" hidden="{{switchFlag}}">
-    <view class="attr-pop ">
+  <view class="attr-pop-box" hidden="{{switchFlag}}"  data-type="1" catchtap="unfoldChannel">
+    <view class="attr-pop" data-type="2" catchtap="unfoldChannel">
         <view class="scroll-item {{ channelSelectId == item.id ? 'active' : ''}}" wx:for="{{channel}}" wx:key="id" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchChannel">
           <image src="{{item.icon_url}}" background-size="cover"></image>
           <text>{{item.name}}</text>
         </view>
         <view class="collapse">
-          <button class="btn-normal" bindtap="unfoldChannel">
+          <button class="btn-normal" data-type="3" catchtap="unfoldChannel">
             <view class="textbtn">
               <text>收起</text>
               <image class="icon"></image>

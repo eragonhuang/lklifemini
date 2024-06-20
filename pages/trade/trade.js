@@ -100,6 +100,7 @@ Page({
  
   unfoldChannel: function (event) {
     var that = this;
+    if(event.currentTarget.dataset.type == 2) return
     var flag = (that.data.switchFlag)?false:true;
     that.setData({
       switchFlag: flag
