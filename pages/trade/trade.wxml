@@ -51,8 +51,14 @@
         <text class="active">冷饮</text>
       </view>
       <view class="columns">
-        <view class="item"><text>销量</text><text style="margin-left:6rpx;">^</text></view>
-        <view class="item"><text>价格</text><text style="margin-left:6rpx;">v</text></view>
+        <view class="item">
+          <text style="float:left;">销量</text>
+          <view class="arrow"><image class="icon-up"></image><image class="icon-down"></image></view>
+        </view>
+        <view class="item">
+          <text style="float:left;">价格</text>
+          <view class="arrow"><image class="icon-up"></image><image class="icon-down"></image></view>
+        </view>
       </view>
 
       <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
