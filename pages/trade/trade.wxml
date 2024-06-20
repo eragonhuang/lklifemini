@@ -45,16 +45,12 @@
         <view class="item {{ selectId == item.category_id ? 'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
     </scroll-view>
 
+    <view class="service-policy">
+      <view class="item">新品</view>
+      <view class="item">冷饮</view>
+    </view>
+
     <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
-      <!-- <view class="cate-item">
-        <view class="b">
-            <navigator class="item {{(iindex + 1) % 2 == 0 ? 'item-b' : ''}}"   url="/pages/goods/goods?id={{iitem.id}}" wx:for="{{goodsList}}" wx:for-item="iitem" wx:for-index="iindex" >
-                <image class="img" src="{{iitem.list_pic_url}}" background-size="cover"></image>
-                <text class="name">{{iitem.name}}</text>
-                <text class="price">￥{{iitem.retail_price}}</text>
-            </navigator>
-        </view>
-      </view> -->
       <view class="goodsitem" wx:for="{{goodsList}}" wx:key="id" data-index="{{index}}">
         <image class="img" src="{{item.list_pic_url}}" bindtap="openGoods" data-id="{{item.id}}"></image>
         <view class="info">
