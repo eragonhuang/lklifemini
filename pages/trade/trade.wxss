@@ -388,7 +388,7 @@ page {
   height: 60rpx;
   background: #fff;
   padding: 10rpx 10rpx;
-  margin-left: 120px;
+  padding-left: 120rpx;
   /* display: inline-block;
   align-items: center;
   justify-content: space-between; */
@@ -399,7 +399,7 @@ page {
   align-items: center;
   font-size: 25rpx;
   color: #4F5355;
-  margin: 0 20rpx;
+  margin: 0 30rpx;
   float: left;
 }
 

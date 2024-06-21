@@ -52,8 +52,12 @@
       </view>
       <view class="columns">
         <view class="item">
+          <text style="float:left;">综合</text>
+          <view class="arrow"></view>
+        </view>
+        <view class="item">
           <text style="float:left;">销量</text>
-          <view class="arrow"><image class="icon-up"></image><image class="icon-down"></image></view>
+          <view class="arrow"></view>
         </view>
         <view class="item">
           <text style="float:left;">价格</text>
