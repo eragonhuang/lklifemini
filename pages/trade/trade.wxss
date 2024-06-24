@@ -52,7 +52,7 @@ page {
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
-  padding: 40rpx 0;
+  padding: 21rpx 0 20rpx 0;
 }
 
 .m-menu image {
