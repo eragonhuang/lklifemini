@@ -46,9 +46,8 @@
     </scroll-view>
 
     <view class="goodslist">
-      <view class="keywords">
-        <text>新品</text>
-        <text class="active">冷饮</text>
+      <view hidden="{{keywords.length==0}}" class="keywords">
+        <text class="{{index==0?'active':''}}" wx:for="{{keywords}}" wx:key="id" wx:for-item="item">{{item}}</text>
       </view>
       <view class="columns">
         <view class="item">

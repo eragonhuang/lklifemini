@@ -7,6 +7,7 @@ Page({
   data: {
     channel: [],
     navList: [],
+    keywords: [],
     categoryList: [],
     currentCategory: {},
     scrollLeft: 0,
@@ -44,11 +45,13 @@ Page({
     util.request(api.CatalogList).then(function (res) {
         var _channel = res.data.channel;
         console.log("_channelSelectId:",_channelSelectId)
-        var _navList = res.data.categoryList["cate_"+_channelSelectId]
+        var _navList = res.data.categoryList["cate_"+_channelSelectId];
+        var _keywords = (_navList.length>0)?_navList[0].keywords:-1;
         var _categoryId = (_navList.length>0)?_navList[0].category_id:-1;
         that.setData({
           channel: _channel,
           navList: _navList,
+          keywords: _keywords,
           //currentCategory: res.data.currentCategory,
           categoryList: res.data.categoryList,
           selectId: _categoryId
@@ -122,10 +125,12 @@ Page({
   switchChannel: function (event) {
     var that = this;
     var _navList = that.data.categoryList['cate_'+event.currentTarget.dataset.id]
+    var _keywords = _navList[0].keywords
     var _categoryId = _navList[0].category_id;
     that.setData({
       channelSelectId: event.currentTarget.dataset.id,
       navList: _navList,
+      keywords: _keywords,
       selectId: _categoryId,
       switchFlag: true
     });
@@ -136,8 +141,15 @@ Page({
     var that = this;
     var currentTarget = event.currentTarget;
     var cateId = event.currentTarget.dataset.cateid;
+    var index = event.currentTarget.dataset.index+1;
+    console.log("index:",index)
+    //console.log("categoryList:",that.data.categoryList)
+    var _navList = that.data.categoryList['cate_'+this.data.channelSelectId]
+    console.log("_navList:",_navList)
+    var _keywords = _navList[index-1].keywords
     that.setData({
-      selectId: cateId
+      selectId: cateId,
+      keywords: _keywords
     });
     if (that.data.selectId == event.currentTarget.dataset.id) {
       return false;
