@@ -43,8 +43,9 @@ Page({
     });
     util.request(api.CatalogList).then(function (res) {
         var _channel = res.data.channel;
+        console.log("_channelSelectId:",_channelSelectId)
         var _navList = res.data.categoryList["cate_"+_channelSelectId]
-        var _categoryId = _navList[0].category_id;
+        var _categoryId = (_navList.length>0)?_navList[0].category_id:-1;
         that.setData({
           channel: _channel,
           navList: _navList,
