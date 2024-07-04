@@ -42,12 +42,12 @@
   <view class="catalog">
 
     <scroll-view class="nav" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}}px;">
-        <view class="item {{ selectId == item.category_id ? 'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
+        <view class="item {{ categoryId == item.category_id ? 'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" data-cateid="{{item.category_id}}" data-index="{{index}}" bindtap="switchCate">{{item.name}}</view>
     </scroll-view>
 
     <view class="goodslist">
-      <view hidden="{{keywords.length==0}}" class="keywords">
-        <text class="{{index==0?'active':''}}" wx:for="{{keywords}}" wx:key="id" wx:for-item="item">{{item}}</text>
+      <view hidden="{{keywordsList.length==0}}" class="keywords">
+        <text class="{{keyword==item?'active':''}}" wx:for="{{keywordsList}}" wx:key="id" wx:for-item="item" data-item="{{item}}" bindtap="reloadGoods">{{item}}</text>
       </view>
       <view class="columns">
         <view class="item">

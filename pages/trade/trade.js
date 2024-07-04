@@ -10,11 +10,12 @@ Page({
     keywordsList: [],
     categoryList: [],
     currentCategory: {},
+    keyword:'全部',
     scrollLeft: 0,
     scrollTop: 0,
     scrollHeight: 0,
     goodsList: [],
-    selectId: 0,
+    categoryId: 0,
     channelSelectId: 1,
     switchFlag:true,
     isBack:0  //是否下一页面返回
@@ -53,9 +54,9 @@ Page({
           keywordsList: _keywords,
           //currentCategory: res.data.currentCategory,
           categoryList: res.data.categoryList,
-          selectId: _categoryId
+          categoryId: _categoryId
         });
-        that.getGoodsList(that.data.selectId);
+        that.getGoodsList(that.data.categoryId);
         wx.hideLoading();
       });
   },
@@ -112,13 +113,22 @@ Page({
   
   getGoodsList: function (categoryId) {
     var that = this;
-    util.post(api.GoodsList, {categoryId: categoryId, page: 1, size: 1000})
+    util.post(api.GoodsList, {categoryId: categoryId,keyword: that.data.keyword,page: 1, size: 1000})
       .then(function (res) {
         that.setData({
           goodsList: res.data.goodsList,
-          selectId: categoryId
+          categoryId: categoryId
         });
       });
+  },
+
+  reloadGoods: function (event) {
+     var that = this;
+     var _keyword = event.currentTarget.dataset.item
+     that.setData({
+      keyword: _keyword
+    });
+     this.getGoodsList(that.data.categoryId);
   },
 
   switchChannel: function (event) {
@@ -130,8 +140,9 @@ Page({
       channelSelectId: event.currentTarget.dataset.id,
       navList: _navList,
       keywordsList: _keywords,
-      selectId: _categoryId,
-      switchFlag: true
+      categoryId: _categoryId,
+      switchFlag: true,
+      keyword:"全部"
     });
     this.getGoodsList(_categoryId);
   },
@@ -147,13 +158,13 @@ Page({
     console.log("_navList:",_navList)
     var _keywords = _navList[index-1].keywords
     that.setData({
-      selectId: cateId,
-      keywordsList: _keywords
+      categoryId: cateId,
+      keywordsList: _keywords,
+      keyword:"全部"
     });
-    if (that.data.selectId == currentTarget.dataset.id) {
+    if (that.data.categoryId == currentTarget.dataset.id) {
       return false;
     }
-
    // this.getCurrentCategory(event.currentTarget.dataset.id);
    this.getGoodsList(cateId);
   },
