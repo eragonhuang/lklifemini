@@ -51,16 +51,16 @@
       </view>
       <view class="columns">
         <view class="item">
-          <text style="float:left;" data-sortflag="1" bindtap="reloadSort">综合</text>
+          <text style="float:left;" class="{{sortFlag==1?'active':''}}" data-sortflag="1" bindtap="reloadSort">综合</text>
           <view class="arrow"></view>
         </view>
         <view class="item">
-          <text style="float:left;" data-sortflag="2" bindtap="reloadSort">销量</text>
+          <text style="float:left;" class="{{sortFlag==2?'active':''}}" data-sortflag="2" bindtap="reloadSort">销量</text>
           <view class="arrow"></view>
         </view>
         <view class="item">
-          <text style="float:left;" data-sortflag="3" bindtap="reloadSort">价格</text>
-          <view class="arrow"><image class="icon-up"></image><image class="icon-down"></image></view>
+          <text style="float:left;" class="{{sortFlag==3||sortFlag==4?'active':''}}" data-sortflag="3" bindtap="reloadSort">价格</text>
+          <view class="arrow"><image class="{{sortFlag==3?'icon-up-active':'icon-up'}}"></image><image class="{{sortFlag==4?'icon-down-active':'icon-down'}}"></image></view>
         </view>
       </view>
 

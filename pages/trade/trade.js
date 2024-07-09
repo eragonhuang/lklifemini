@@ -135,6 +135,10 @@ Page({
   reloadSort: function (event) {
     var that = this;
     var _sortflag = event.currentTarget.dataset.sortflag
+    if(_sortflag == 1 && this.data.sortFlag==1)  _sortflag=-1;
+    if(_sortflag == 2 && this.data.sortFlag==2)  _sortflag=-1;
+    if(_sortflag == 3 && this.data.sortFlag==3)  _sortflag=4;
+    if(_sortflag == 3 && this.data.sortFlag==4)  _sortflag=-1;
     that.setData({
       sortFlag: _sortflag
    });
