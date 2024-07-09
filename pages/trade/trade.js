@@ -18,7 +18,8 @@ Page({
     categoryId: 0,
     channelSelectId: 1,
     switchFlag:true,
-    isBack:0  //是否下一页面返回
+    isBack:0,  //是否下一页面返回
+    sortFlag:0   //排序flag, 0 默认空 1 综合 2销量 3价格升序 4价格倒序
   },
   init: function () {
     var that = this;
@@ -113,7 +114,7 @@ Page({
   
   getGoodsList: function (categoryId) {
     var that = this;
-    util.post(api.GoodsList, {categoryId: categoryId,keyword: that.data.keyword,page: 1, size: 1000})
+    util.post(api.GoodsList, {categoryId: categoryId,keyword: that.data.keyword,sortFlag: that.data.sortFlag,page: 1, size: 1000})
       .then(function (res) {
         that.setData({
           goodsList: res.data.goodsList,
@@ -122,7 +123,7 @@ Page({
       });
   },
 
-  reloadGoods: function (event) {
+  reloadKeyword: function (event) {
      var that = this;
      var _keyword = event.currentTarget.dataset.item
      that.setData({
@@ -130,6 +131,15 @@ Page({
     });
      this.getGoodsList(that.data.categoryId);
   },
+
+  reloadSort: function (event) {
+    var that = this;
+    var _sortflag = event.currentTarget.dataset.sortflag
+    that.setData({
+      sortFlag: _sortflag
+   });
+    this.getGoodsList(that.data.categoryId);
+ },
 
   switchChannel: function (event) {
     var that = this;
