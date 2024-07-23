@@ -356,6 +356,7 @@ Page({
   deleteCartGoods: function (event){
     let that = this;
     let goodsIndex = event.target.dataset.id;
+    let goodsNumber = event.target.dataset.number;
 
     wx.showModal({
       title: '删除商品',
@@ -371,6 +372,17 @@ Page({
                 cartGoods: res.data.cartList,
                 cartTotal: res.data.cartTotal
               });
+              
+              //设置购物车Badge
+              app.globalData.cartCount = app.globalData.cartCount-goodsNumber
+              if(app.globalData.cartCount>0){
+                console.log("app.globalData.cartCount:",app.globalData.cartCount);
+                wx.setTabBarBadge({
+                  index: 2,
+                  text: String(app.globalData.cartCount)
+                })
+              }
+
             }
           });
         }else{
